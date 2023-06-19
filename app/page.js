@@ -18,7 +18,7 @@ export default function HomePage() {
         </nav>
         <div>
           <Image
-            src="/backgroundimages/atestpic.jpeg"
+            src="/images/atestpic.jpeg"
             alt="test"
             width="200"
             height="200"
