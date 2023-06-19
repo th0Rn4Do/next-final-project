@@ -1,0 +1,15 @@
+.backgroundoftextfield {
+  width: 75%;
+  height: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-color: black;
+  margin-left: 150px;
+  margin-right: 150px;
+  border: 8px solid rgb(216, 216, 216);
+  box-sizing: border-box;
+  border-radius: 120px;
+  font-size: 20px;
+}

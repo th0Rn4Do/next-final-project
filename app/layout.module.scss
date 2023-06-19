@@ -1,0 +1,48 @@
+.bodystylings {
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+}
+
+.navigationbar {
+  background-color: rgb(196, 32, 155);
+  padding: 16px;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  height: 25px;
+
+  a {
+    background-color: transparent;
+  }
+
+  .hyperlinks {
+    background-color: transparent;
+  }
+}
+
+.footerbar {
+  background-color: aqua;
+  padding: 16px;
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  height: 20px;
+  bottom: 0px;
+
+  a {
+    background-color: transparent;
+  }
+
+  .hyperlinks {
+    background-color: transparent;
+  }
+}
+
+.copyright {
+  background-color: aqua;
+}
