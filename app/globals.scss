@@ -4,3 +4,16 @@
   background-color: white;
   color: black;
 }
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    transform: scale(1.02);
+    text-decoration: underline;
+  }
+}
+
+input {
+  color: rgb(0, 31, 57);
+}

@@ -1,7 +1,14 @@
 .registerbutton {
   background-color: rgb(58, 41, 152);
   color: white;
-  border-radius: 25%;
+  border-radius: 5px;
+  border: 1px solid;
+  cursor: pointer;
   width: 68px;
   height: 24px;
+
+  &:hover {
+    background-color: white;
+    color: rgb(58, 41, 152);
+  }
 }
