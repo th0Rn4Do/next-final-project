@@ -47,10 +47,13 @@ export default function RegisterForm() {
           onChange={(event) => setPassword(event.currentTarget.value)}
         />
       </label>
-      <button className={styles.button} onClick={async () => await register()}>
+      <button
+        className={styles.registerbutton}
+        onClick={async () => await register()}
+      >
         Sign up
       </button>
-      {error !== '' && <div className={styles.error}>{error}</div>}
+      {error !== '' && <div className={styles.registererror}>{error}</div>}
     </form>
   );
 }

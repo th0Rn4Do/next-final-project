@@ -1,5 +1,6 @@
 .cookieBanner {
-  background-color: rgb(241, 226, 230);
+  background-color: rgb(248, 211, 239);
+  color: rgb(42, 157, 143);
   padding: 5px;
   display: flex;
   justify-content: center;
@@ -24,15 +25,19 @@
   }
 }
 
-.button {
+.cookiebutton {
   border: 1px solid;
   cursor: pointer;
-  background-color: rgb(212, 114, 34);
-  color: rgb(0, 31, 57);
+  background-color: rgb(231, 111, 81);
+  color: rgb(220, 234, 239);
   border-radius: 5px;
 
   &:hover {
-    background-color: rgb(0, 31, 57);
-    color: white;
+    background-color: rgb(220, 234, 239);
+    color: rgb(231, 111, 81);
   }
+}
+
+.error {
+  background-color: rgb(227, 49, 49);
 }

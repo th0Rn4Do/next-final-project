@@ -1,5 +1,5 @@
 .registerbutton {
-  background-color: rgb(58, 41, 152);
+  background-color: rgb(38, 70, 83);
   color: white;
   border-radius: 5px;
   border: 1px solid;
@@ -9,6 +9,10 @@
 
   &:hover {
     background-color: white;
-    color: rgb(58, 41, 152);
+    color: rgb(38, 70, 83);
   }
+}
+
+.error {
+  background-color: rgb(227, 49, 49);
 }

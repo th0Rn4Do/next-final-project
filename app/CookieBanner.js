@@ -27,7 +27,7 @@ export function CookieBanner() {
         This is the cookie policy. Please accept the terms and conditions.
       </div>
       <button
-        className={style.button}
+        className={style.cookiebutton}
         onClick={() => {
           setLocalStorage('cookiePolicy', JSON.stringify(true));
           setAreCookiesTermsAccepted(true);

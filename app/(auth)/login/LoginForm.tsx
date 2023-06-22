@@ -54,10 +54,13 @@ export default function LoginForm(props: Props) {
           onChange={(event) => setPassword(event.currentTarget.value)}
         />
       </label>
-      <button className={styles.button} onClick={async () => await login()}>
+      <button
+        className={styles.loginbutton}
+        onClick={async () => await login()}
+      >
         log in
       </button>
-      {error !== '' && <div className={styles.error}>{error}</div>}
+      {error !== '' && <div className={styles.loginerror}>{error}</div>}
     </form>
   );
 }
