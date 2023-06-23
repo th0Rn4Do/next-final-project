@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getUserByUsername } from '../../../database/users';
+import styles from './page.module.scss';
 
 type Props = {
   params: {
@@ -17,12 +18,24 @@ export default async function ProfileUsernamePage({ params }: Props) {
   return (
     <>
       <div>id: {user.id}</div>
-      <div>username: {user.username}</div>
-      <div>First Name: {user.firstName}</div>
-      <div>Last Name: {user.lastName}</div>
-      <div>Genre: {user.genre}</div>
-      <div>Personal description: {user.personalDescription}</div>
-      <div>Music instrument: {user.musicInstrument}</div>
+      <section className={styles.sectionForUserData}>
+        <div className={styles.boxesForUserData}>
+          <div>username: {user.username}</div>
+          <br />
+          <div>First Name: {user.firstName}</div>
+          <br />
+          <div>Last Name: {user.lastName}</div>
+          <br />
+          <div>Genre: {user.genre}</div>
+          <br />
+          <div>Music instrument: {user.musicInstrument}</div>
+        </div>
+        <div className={styles.boxesForPersonalDescription}>
+          <div>
+            Personal description: <br /> <br /> {user.personalDescription}
+          </div>
+        </div>
+      </section>
     </>
   );
 }
