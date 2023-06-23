@@ -4,6 +4,11 @@ import { sql } from './connect';
 
 type UserWithPasswordHash = User & {
   passwordHash: string;
+  firstName: string;
+  lastName: string;
+  genre: string;
+  personalDescription: string;
+  musicInstrument: string;
 };
 
 export const getUserWithPasswordHashByUsername = cache(
@@ -34,13 +39,21 @@ export const getUserByUsername = cache(async (username: string) => {
 });
 
 export const createUser = cache(
-  async (username: string, passwordHash: string) => {
+  async (
+    username: string,
+    passwordHash: string,
+    firstName: string,
+    lastName: string,
+    genre: string,
+    personalDescription: string,
+    musicInstrument: string,
+  ) => {
     console.log(passwordHash);
     const [user] = await sql<User[]>`
     INSERT INTO users
-      (username, password_hash)
+      (username, password_hash, first_name, last_name, genre, personal_description, music_instrument)
     VALUES
-      (${username.toLowerCase()}, ${passwordHash})
+      (${username.toLowerCase()}, ${passwordHash}, ${firstName},  ${lastName}, ${genre}, ${personalDescription}, ${musicInstrument})
     RETURNING
       id,
       username

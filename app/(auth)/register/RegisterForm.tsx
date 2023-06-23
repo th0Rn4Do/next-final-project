@@ -8,13 +8,26 @@ import styles from './RegisterForm.module.scss';
 export default function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [genre, setGenre] = useState('');
+  const [personalDescription, setPersonalDescription] = useState('');
+  const [musicInstrument, setMusicInstrument] = useState('');
   const [error, setError] = useState('');
   const router = useRouter();
 
   async function register() {
     const response = await fetch('/api/register', {
       method: 'POST',
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({
+        username,
+        password,
+        firstName,
+        lastName,
+        genre,
+        personalDescription,
+        musicInstrument,
+      }),
     });
 
     const data: RegisterResponseBodyPost = await response.json();
@@ -45,6 +58,43 @@ export default function RegisterForm() {
           type="password"
           value={password}
           onChange={(event) => setPassword(event.currentTarget.value)}
+        />
+      </label>
+      <label>
+        First name:
+        <input
+          value={firstName}
+          onChange={(event) => setFirstName(event.currentTarget.value)}
+        />
+      </label>
+      <label>
+        Last name:
+        <input
+          value={lastName}
+          onChange={(event) => setLastName(event.currentTarget.value)}
+        />
+      </label>
+      <label>
+        Genre:
+        <input
+          value={genre}
+          onChange={(event) => setGenre(event.currentTarget.value)}
+        />
+      </label>
+      <label>
+        Personal description:
+        <input
+          value={personalDescription}
+          onChange={(event) =>
+            setPersonalDescription(event.currentTarget.value)
+          }
+        />
+      </label>
+      <label>
+        Music instrument:
+        <input
+          value={musicInstrument}
+          onChange={(event) => setMusicInstrument(event.currentTarget.value)}
         />
       </label>
       <button
