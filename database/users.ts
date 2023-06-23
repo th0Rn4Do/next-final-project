@@ -28,7 +28,12 @@ export const getUserByUsername = cache(async (username: string) => {
   const [user] = await sql<User[]>`
     SELECT
       id,
-      username
+      username,
+      first_name,
+      last_name,
+      genre,
+      personal_description,
+      music_instrument
     FROM
       users
     WHERE

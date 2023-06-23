@@ -2,7 +2,9 @@ import { notFound } from 'next/navigation';
 import { getUserByUsername } from '../../../database/users';
 
 type Props = {
-  params: { username: string };
+  params: {
+    username: string;
+  };
 };
 
 export default async function ProfileUsernamePage({ params }: Props) {
@@ -16,6 +18,11 @@ export default async function ProfileUsernamePage({ params }: Props) {
     <>
       <div>id: {user.id}</div>
       <div>username: {user.username}</div>
+      <div>First Name: {user.firstName}</div>
+      <div>Last Name: {user.lastName}</div>
+      <div>Genre: {user.genre}</div>
+      <div>Personal description: {user.personalDescription}</div>
+      <div>Music instrument: {user.musicInstrument}</div>
     </>
   );
 }

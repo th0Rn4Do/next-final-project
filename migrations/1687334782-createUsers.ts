@@ -4,6 +4,11 @@ export type User = {
   id: number;
   username: string;
   // Omit passwordHash for security
+  firstName: string;
+  lastName: string;
+  genre: string;
+  personalDescription: string;
+  musicInstrument: string;
 };
 
 export async function up(sql: Sql) {
