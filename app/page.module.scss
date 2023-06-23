@@ -1,8 +1,18 @@
+.centerbackgroundimage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+  justify-content: center;
+  text-align: center;
+}
+
 .backgroundoftextfield {
   width: 75%;
-  height: 75%;
+  height: 200%;
   display: flex;
   justify-content: center;
+  text-align: center;
   align-items: center;
   position: relative;
   border-color: black;
@@ -12,4 +22,5 @@
   box-sizing: border-box;
   border-radius: 120px;
   font-size: 20px;
+  padding: 70px 0;
 }

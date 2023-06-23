@@ -50,8 +50,12 @@ export default async function RootLayout({ children }: Props) {
                 </>
               ) : (
                 <>
-                  <Link href="/register">register</Link>
-                  <Link href="/login">login</Link>
+                  <div className={styles.registrationbutton}>
+                    <Link href="/register">register</Link>
+                  </div>
+                  <div className={styles.loginbutton}>
+                    <Link href="/login">login</Link>
+                  </div>
                 </>
               )}
             </div>

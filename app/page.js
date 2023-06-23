@@ -8,6 +8,7 @@ export default function HomePage() {
   return (
     <>
       <main>
+        {/* still need to work on this */}
         <nav>
           <div>
             <RegisterButton />
@@ -17,12 +18,14 @@ export default function HomePage() {
           </div>
         </nav>
         <div>
-          <Image
-            src="/images/atestpic.jpeg"
-            alt="test"
-            width="200"
-            height="200"
-          />
+          <div className={styles.centerbackgroundimage}>
+            <Image
+              src="/images/atestpic.jpeg"
+              alt="test"
+              width="200"
+              height="200"
+            />
+          </div>
           <div className={styles.backgroundoftextfield}>
             <div>FindAmusician - Home page</div>
           </div>
