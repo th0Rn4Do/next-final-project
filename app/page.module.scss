@@ -1,13 +1,20 @@
 .centerbackgroundimage {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 40%;
+  width: auto;
+  min-height: 400px;
   justify-content: center;
   text-align: center;
+  background-image: url('../public/images/atestpic.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 1;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .backgroundoftextfield {
+  background-color: white;
   width: 75%;
   height: 200%;
   display: flex;
@@ -15,12 +22,14 @@
   text-align: center;
   align-items: center;
   position: relative;
-  border-color: black;
-  margin-left: 150px;
-  margin-right: 150px;
+  border-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
   border: 8px solid rgb(216, 216, 216);
   box-sizing: border-box;
   border-radius: 120px;
   font-size: 20px;
   padding: 70px 0;
+  top: 4rem;
+  z-index: 2;
 }

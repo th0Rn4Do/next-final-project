@@ -8,6 +8,7 @@ export function LogoutButton() {
   const router = useRouter();
   return (
     <form>
+      <div className={styles.backgroundlogoutbutton}>
       <button
         className={styles.logoutbutton}
         formAction={async () => {
@@ -17,6 +18,7 @@ export function LogoutButton() {
       >
         logout
       </button>
+      </div>
     </form>
   );
 }

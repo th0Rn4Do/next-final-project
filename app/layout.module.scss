@@ -8,18 +8,30 @@
   width: 100%;
 }
 
+.navbarorientation {
+  display: flex;
+}
+
 .navigationbar {
   background-color: rgb(196, 32, 155);
   padding: 16px;
   display: flex;
+  justify-content: space-between;
   gap: 1rem;
   width: 100%;
   height: 25px;
-  justify-content: space-evenly;
   text-align: center;
+  border-color: transparent;
 
   a {
     background-color: transparent;
+    text-decoration: none;
+
+    &:hover {
+      transform: scale(1.02);
+      text-decoration: underline;
+      color: white;
+    }
   }
 
   .hyperlinks {
@@ -27,33 +39,88 @@
   }
 
   .registrationbutton {
-    background-color: rgb(38, 70, 83);
+    background-color: rgb(220, 234, 239);
     // color: white;
     border-radius: 5px;
     border: 1px solid;
     cursor: pointer;
     width: 68px;
     height: 24px;
+    border-color: transparent;
 
     &:hover {
       // background-color: white;
-      color: rgb(38, 70, 83);
+      background-color: rgb(38, 70, 83);
     }
   }
 
   .loginbutton {
-    background-color: rgb(38, 70, 83);
+    background-color: rgb(220, 234, 239);
     // color: white;
     border-radius: 5px;
     border: 1px solid;
     cursor: pointer;
     width: 68px;
     height: 24px;
+    border-color: transparent;
 
     &:hover {
       // background-color: white;
-      color: rgb(38, 70, 83);
+      background-color: rgb(38, 70, 83);
     }
+  }
+
+  .logoutbutton {
+    background-color: rgb(220, 234, 239);
+    // color: white;
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
+    width: 68px;
+    height: 24px;
+    border-color: transparent;
+
+    &:hover {
+      // background-color: white;
+      background-color: rgb(38, 70, 83);
+    }
+  }
+
+  .usershowinginnavbar {
+    background-color: rgb(220, 234, 239);
+    // color: white;
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
+    width: 68px;
+    height: 24px;
+    border-color: transparent;
+
+    &:hover {
+      // background-color: white;
+      background-color: rgb(38, 70, 83);
+      transform: scale(1.02);
+      text-decoration: underline;
+      color: white;
+    }
+  }
+
+  .navigationbarleftside {
+    display: flex;
+    justify-content: flex-start;
+    background-color: transparent;
+    gap: 1rem;
+  }
+
+  .navbarspace {
+    background-color: transparent;
+  }
+
+  .navigationbarrightside {
+    display: flex;
+    justify-content: flex-end;
+    background-color: rgb(196, 32, 155);
+    gap: 1rem;
   }
 }
 
@@ -67,6 +134,7 @@
   bottom: 0px;
   justify-content: space-evenly;
   text-align: center;
+  margin-top: 8rem;
 
   a {
     background-color: transparent;

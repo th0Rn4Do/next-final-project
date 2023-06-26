@@ -1,15 +1,23 @@
+.backgroundlogoutbutton {
+  background-color: rgb(196, 32, 155);
+}
+
 .logoutbutton {
-  background-color: rgb(38, 70, 83);
-  color: white;
+  background-color: rgb(220, 234, 239);
+  // color: white;
   border-radius: 5px;
-  border: 1px solid;
+  border: 0px;
+  border-color: transparent;
   cursor: pointer;
   width: 68px;
   height: 24px;
 
   &:hover {
-    background-color: white;
-    color: rgb(38, 70, 83);
+    // background-color: white;
+    background-color: rgb(38, 70, 83);
+    transform: scale(1.02);
+    text-decoration: underline;
+    color: white;
   }
 }
 

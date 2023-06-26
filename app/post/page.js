@@ -1,6 +1,8 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getValidSessionByToken } from '../../database/sessions';
+import { getUserBySessionToken } from '../../database/users';
+import PostForm from './PostForm';
 
 export const metadata = {
   title: 'New post',
@@ -12,12 +14,19 @@ export default async function NewPostPage() {
 
   // 1. Check if the sessionToken cookie exit
   const sessionTokenCookie = cookies().get('sessionToken');
+
+  const user = await getUserBySessionToken(sessionTokenCookie.value);
+  console.log(user);
   // 2. check if the sessionToken has a valid session
   const session =
     sessionTokenCookie &&
     (await getValidSessionByToken(sessionTokenCookie.value));
 
   // 3. Either redirect or render the login form
-  if (!session) redirect('/');
-  return <main>FindAmusician - New post page</main>;
+  if (!session) redirect('/login');
+  return (
+    <PostForm userId={user.id} />
+
+    /* return;  <main>FindAmusician - New post page</main>; */
+  );
 }

@@ -19,7 +19,7 @@ export default async function RegisterPage() {
     (await getValidSessionByToken(sessionTokenCookie.value));
 
   // 3. Either redirect or render the login form
-  if (!session) redirect('/');
+  if (session) redirect('/');
   return (
     <RegisterForm />
     /* return;  <main>FindAmusician - Register</main>; */

@@ -35,31 +35,40 @@ export default async function RootLayout({ children }: Props) {
     <html lang="en">
       <body className={inter.className}>
         <div className={styles.container}>
-          <nav className={styles.navigationbar}>
-            <div className={styles.hyperlinks}>
-              <Link href="/">Home</Link>
-            </div>
-            <div className={styles.hyperlinks}>
-              <Link href="/search">Search</Link>
-            </div>
-            <div>
-              {user ? (
-                <>
-                  <div>{user.username}</div>
-                  <LogoutButton />
-                </>
-              ) : (
-                <>
-                  <div className={styles.registrationbutton}>
-                    <Link href="/register">register</Link>
-                  </div>
-                  <div className={styles.loginbutton}>
-                    <Link href="/login">login</Link>
-                  </div>
-                </>
-              )}
-            </div>
-          </nav>
+          <div className={styles.navbarorientation}>
+            <nav className={styles.navigationbar}>
+              <div className={styles.navigationbarleftside}>
+                <div className={styles.hyperlinks}>
+                  <Link href="/">Home</Link>
+                </div>
+                <div className={styles.navbarspace} />
+              </div>
+              <div className={styles.navigationbarrightside}>
+                <div className={styles.hyperlinks}>
+                  <Link href="/search">Search</Link>
+                </div>
+                {user ? (
+                  <>
+                    <div className={styles.usershowinginnavbar}>
+                      {user.username}
+                    </div>
+                    <div className={styles.logoutbutton}>
+                      <LogoutButton />
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className={styles.registrationbutton}>
+                      <Link href="/register">register</Link>
+                    </div>
+                    <div className={styles.loginbutton}>
+                      <Link href="/login">login</Link>
+                    </div>
+                  </>
+                )}
+              </div>
+            </nav>
+          </div>
           <section className={styles.bodystylings}></section>
           <CookieBanner />
           {children}
