@@ -1,4 +1,6 @@
-import { notFound } from 'next/navigation';
+import { cookies } from 'next/headers';
+import { notFound, redirect } from 'next/navigation';
+import { getValidSessionByToken } from '../../../database/sessions';
 import { getUserByUsername } from '../../../database/users';
 import styles from './page.module.scss';
 
@@ -14,6 +16,18 @@ export default async function ProfileUsernamePage({ params }: Props) {
   if (!user) {
     notFound();
   }
+
+  // if the user is NOT logged in redirect to login
+
+  // 1. Check if the sessionToken cookie exit
+  const sessionTokenCookie = cookies().get('sessionToken');
+  // 2. check if the sessionToken has a valid session
+  const session =
+    sessionTokenCookie &&
+    (await getValidSessionByToken(sessionTokenCookie.value));
+
+  // 3. Either redirect or render the login form
+  if (!session) redirect('/login');
 
   return (
     <>

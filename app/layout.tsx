@@ -52,6 +52,9 @@ export default async function RootLayout({ children }: Props) {
                     <div className={styles.usershowinginnavbar}>
                       <Link href="/profile/4TEST">{user.username}</Link>
                     </div>
+                    <div className={styles.createpostbutton}>
+                      <Link href="/post">Create post</Link>
+                    </div>
                     <div className={styles.logoutbutton}>
                       <LogoutButton />
                     </div>

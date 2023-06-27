@@ -18,7 +18,7 @@ export default function ContactUsPage() {
         </div>
         <section className={styles.cusubsection}>
           <div>
-            <h4>Autorised process agent according to Lorem ipsum</h4>
+            <h4>Authorised process agent according to Lorem ipsum</h4>
           </div>
           <section className={styles.contactsubsubsection}>
             <div>

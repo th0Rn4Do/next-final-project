@@ -105,6 +105,25 @@
     }
   }
 
+  .createpostbutton {
+    background-color: rgb(220, 234, 239);
+    // color: white;
+    border-radius: 5px;
+    border: 1px solid;
+    cursor: pointer;
+    width: 120px;
+    height: 24px;
+    border-color: transparent;
+
+    &:hover {
+      // background-color: white;
+      background-color: rgb(38, 70, 83);
+      transform: scale(1.02);
+      text-decoration: underline;
+      color: white;
+    }
+  }
+
   .navigationbarleftside {
     display: flex;
     justify-content: flex-start;
