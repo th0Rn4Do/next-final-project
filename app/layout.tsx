@@ -50,7 +50,7 @@ export default async function RootLayout({ children }: Props) {
                 {user ? (
                   <>
                     <div className={styles.usershowinginnavbar}>
-                      {user.username}
+                      <Link href="/profile/4TEST">{user.username}</Link>
                     </div>
                     <div className={styles.logoutbutton}>
                       <LogoutButton />

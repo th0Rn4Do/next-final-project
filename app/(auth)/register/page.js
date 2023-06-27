@@ -1,6 +1,7 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getValidSessionByToken } from '../../../database/sessions';
+import styles from './page.module.scss';
 import RegisterForm from './RegisterForm';
 
 export const metadata = {
@@ -21,7 +22,14 @@ export default async function RegisterPage() {
   // 3. Either redirect or render the login form
   if (session) redirect('/');
   return (
-    <RegisterForm />
-    /* return;  <main>FindAmusician - Register</main>; */
+    <>
+      <div>
+        <h1>FindAmusician - Register</h1>
+      </div>
+      <div className={styles.registerformborder}>
+        <RegisterForm />
+      </div>
+      {/* return; <main>FindAmusician - Register</main>; */}
+    </>
   );
 }

@@ -27,7 +27,11 @@ export default function HomePage() {
             />
           {/* </div> */}
           <div className={styles.backgroundoftextfield}>
-            <div>FindAmusician - Home page</div>
+            <div>
+              <h1>FindAmusician - Home page</h1>
+              <br />
+              <div>Get your jam on</div>
+            </div>
           </div>
         </div>
       </main>

@@ -4,5 +4,13 @@ export const metadata = {
 };
 
 export default function SearchPage() {
-  return <main>FindAmusician - Search</main>;
+  return (
+    <>
+      <div>
+        <h1>FindAmusician - Search</h1>
+      </div>
+      <div>{/* <SearchForm /> */}</div>
+      {/* <main>FindAmusician - Search</main> */}
+    </>
+  );
 }

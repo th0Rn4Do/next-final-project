@@ -46,6 +46,7 @@ export default function LoginForm(props: Props) {
           onChange={(event) => setUsername(event.currentTarget.value)}
         />
       </label>
+      <br />
       <label>
         password:
         <input
@@ -54,6 +55,7 @@ export default function LoginForm(props: Props) {
           onChange={(event) => setPassword(event.currentTarget.value)}
         />
       </label>
+      <br />
       <button
         className={styles.loginbutton}
         onClick={async () => await login()}

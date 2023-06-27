@@ -2,6 +2,7 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getValidSessionByToken } from '../../../database/sessions';
 import LoginForm from './LoginForm';
+import styles from './page.module.scss';
 
 export const metadata = {
   title: 'Log in',
@@ -25,7 +26,14 @@ export default async function LogInPage({ searchParams }: Props) {
 
   console.log('My search params', searchParams);
   return (
-    <LoginForm returnTo={searchParams.returnTo} />
-    /* <main>FindAmusician - Log in</main> */
+    <>
+      <div>
+        <h1>FindAmusician - Log in</h1>
+      </div>
+      <div className={styles.loginformborder}>
+        <LoginForm returnTo={searchParams.returnTo} />
+      </div>
+      {/* <main>FindAmusician - Log in</main> */}
+    </>
   );
 }
