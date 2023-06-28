@@ -38,7 +38,7 @@ export async function POST(
   // console.log(result);
 
   // 2. verify the user data and check that the name is not taken
-  /* if (!result.success) {
+  if (!result.success) {
     // zod send you details about the error
     // console.log(result.error);
     return NextResponse.json(
@@ -47,7 +47,7 @@ export async function POST(
       },
       { status: 400 },
     );
-  } */
+  }
 
   /*
   if (await getUserByUsername(result.data.username)) {
@@ -113,5 +113,5 @@ export async function POST(
   });
 */
   // 7. return the new user to the client
-  return NextResponse.json({ user: newPost });
+  return NextResponse.json({ post: newPost });
 }

@@ -1,0 +1,91 @@
+.sectionForUserData {
+  display: flex;
+}
+
+.boxesForUserData {
+  width: auto;
+  height: auto;
+  display: block;
+  justify-content: center;
+  text-align: left;
+  align-items: center;
+  position: relative;
+  border-color: black;
+  margin-top: 2rem;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 2rem;
+  padding: 3rem;
+  border: 8px solid rgb(216, 216, 216);
+  box-sizing: border-box;
+  border-radius: 120px;
+  font-size: 20px;
+}
+
+.boxesForPersonalDescription {
+  width: 40rem;
+  height: auto;
+  display: block;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  border-color: black;
+  margin-top: 2rem;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 2rem;
+  padding: 3rem;
+  border: 8px solid rgb(216, 216, 216);
+  box-sizing: border-box;
+  border-radius: 120px;
+  font-size: 20px;
+}
+
+.boxForAllPostsInSearch {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+  margin-left: 17rem;
+  margin-right: 17rem;
+  margin-bottom: 50rem;
+  /*
+  width: auto;
+  height: auto;
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  position: relative;
+  border-color: black;
+  margin-top: 2rem;
+  margin-left: 150px;
+  margin-right: 150px;
+  margin-bottom: 2rem;
+  padding: 3rem;
+  border: 8px solid rgb(216, 216, 216);
+  box-sizing: border-box;
+  border-radius: 120px;
+  font-size: 20px;
+*/
+}
+
+.boxForPostInSearch {
+  display: grid;
+  width: 16rem;
+  height: 16rem;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  border-color: black;
+  // margin-top: 2rem;
+  // margin-left: 150px;
+  // margin-right: 150px;
+  // margin-bottom: 2rem;
+  padding: 0rem;
+  border: 4px solid rgb(216, 216, 216);
+  // box-sizing: border-box;
+  border-radius: 5rem;
+  // font-size: 20px;
+}
