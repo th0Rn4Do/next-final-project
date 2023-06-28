@@ -74,7 +74,7 @@ export default async function RootLayout({ children }: Props) {
               </div>
             </nav>
           </div>
-          <section className={styles.bodystylings}></section>
+          <section className={styles.bodystylings} />
           <CookieBanner />
           {children}
         </div>
