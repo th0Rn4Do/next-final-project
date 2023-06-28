@@ -22,7 +22,7 @@ export default async function LogOutPage({ searchParams }: Props) {
   // 3. Either redirect or render the login form
   if (!session) redirect('/login');
 
-  console.log('My search params', searchParams);
+  // console.log('My search params', searchParams);
 
   return <main>FindAmusician - Log out</main>;
 }

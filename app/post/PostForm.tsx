@@ -46,7 +46,7 @@ export default function PostForm(props: { userId: number }) {
       return;
     }
 
-    console.log(data.post);
+    // console.log(data.post);
     // router.push(`/profile/${data.post.title}`);
     // we may have in the future revalidatePath()
     router.refresh();

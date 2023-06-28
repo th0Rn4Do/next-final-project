@@ -36,7 +36,7 @@ export async function POST(
   // 1. get the credentials from the body
   const result = userSchema.safeParse(body);
 
-  console.log(result);
+  // console.log(result);
 
   // 2. verify the user data and check that the name is not taken
   if (!result.success) {
