@@ -1,6 +1,10 @@
 import { cookies } from 'next/headers';
 import { notFound, redirect } from 'next/navigation';
-import { getAllPosts, getAllPostsByUserId } from '../../database/posts';
+import {
+  getAllPosts,
+  getAllPostsByUserId,
+  getAllPostsWithUserId,
+} from '../../database/posts';
 import { getValidSessionByToken } from '../../database/sessions';
 import { getAllUsers, getUserBySessionToken } from '../../database/users';
 import { MatchButton } from '../MatchButton';
@@ -29,7 +33,10 @@ export default async function SearchPage({ params }: Props) {
   // console.log(allPosts);
 
   const allUsers = await getAllUsers();
-  console.log(allUsers);
+  // console.log(allUsers);
+
+  const allPostsWithUser = await getAllPostsWithUserId();
+  console.log(allPostsWithUser);
 
   return (
     <>
@@ -38,27 +45,13 @@ export default async function SearchPage({ params }: Props) {
       </div>
       <div className={styles.searchbar}>🔍 Search</div>
       <section className={styles.boxForAllPostsInSearch}>
-        {allPosts.map((post) => {
+        {allPostsWithUser.map((post) => {
           return (
             <div key={`post-div-${post.id}`}>
               <div className={styles.boxForPostInSearch}>
-                <div>
-                  {allUsers.map((user) => {
-                    return (
-                      // allUsers.filter((user) => user.id !== post.userId))
-
-                      <div
-                        key={`user-div-${allUsers.filter(
-                          (user) => user.id === post.userId,
-                        )}`}
-                      >
-                        {user.username}
-                        <br />
-                      </div>
-                    );
-                  })}
-                </div>
-
+                {post.username}
+                <br />
+                <br />
                 {post.title}
                 <br />
                 {post.postDescription}
