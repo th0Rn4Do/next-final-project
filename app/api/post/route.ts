@@ -1,11 +1,7 @@
-import crypto from 'node:crypto';
-import bcrypt from 'bcrypt';
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createPost } from '../../../database/posts';
-import { createSession } from '../../../database/sessions';
-import { createUser, getUserByUsername } from '../../../database/users';
 import { User } from '../../../migrations/1687334782-createUsers';
 import { Post } from '../../../migrations/1687631080-createPosts';
 import { secureCookieOptions } from '../../../util/cookies';

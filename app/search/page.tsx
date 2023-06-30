@@ -2,7 +2,8 @@ import { cookies } from 'next/headers';
 import { notFound, redirect } from 'next/navigation';
 import { getAllPosts, getAllPostsByUserId } from '../../database/posts';
 import { getValidSessionByToken } from '../../database/sessions';
-import { getUserBySessionToken } from '../../database/users';
+import { getAllUsers, getUserBySessionToken } from '../../database/users';
+import { MatchButton } from '../MatchButton';
 import styles from './page.module.scss';
 
 type Props = {
@@ -27,23 +28,44 @@ export default async function SearchPage({ params }: Props) {
   const allPosts = await getAllPosts();
   // console.log(allPosts);
 
+  const allUsers = await getAllUsers();
+  console.log(allUsers);
+
   return (
     <>
       <div>
         <h1>FindAmusician - Search</h1>
       </div>
-      This are all posts
+      <div className={styles.searchbar}>🔍 Search</div>
       <section className={styles.boxForAllPostsInSearch}>
         {allPosts.map((post) => {
           return (
             <div key={`post-div-${post.id}`}>
               <div className={styles.boxForPostInSearch}>
+                <div>
+                  {allUsers.map((user) => {
+                    return (
+                      // allUsers.filter((user) => user.id !== post.userId))
+
+                      <div
+                        key={`user-div-${allUsers.filter(
+                          (user) => user.id === post.userId,
+                        )}`}
+                      >
+                        {user.username}
+                        <br />
+                      </div>
+                    );
+                  })}
+                </div>
+
                 {post.title}
                 <br />
                 {post.postDescription}
                 <br />
                 {post.postGenre}
                 <br />
+                <MatchButton />
               </div>
             </div>
           );

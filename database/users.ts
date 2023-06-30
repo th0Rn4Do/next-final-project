@@ -85,3 +85,29 @@ export const getUserBySessionToken = cache(async (token: string) => {
 
   return user;
 });
+
+export const getUserByUserId = cache(async (userId: number) => {
+  const [user] = await sql<User[]>`
+    SELECT
+      username,
+      first_name
+    FROM
+      users
+    WHERE
+      users.id = ${userId}
+ `;
+
+  return user;
+});
+
+export const getAllUsers = cache(async () => {
+  const users = await sql<User[]>`
+  SELECT
+    users.id,
+    users.username
+  FROM
+    users
+  `;
+
+  return users;
+});

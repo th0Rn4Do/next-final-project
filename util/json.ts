@@ -1,5 +1,6 @@
-import sjson from 'secure-json-parse';
+// import sjson from 'secure-json-parse';
 
+/*
 export function parseJson(
   stringifiedJson: string,
 ): undefined | CookieCommentItem[] {
@@ -11,3 +12,4 @@ export function parseJson(
     return undefined;
   }
 }
+*/
