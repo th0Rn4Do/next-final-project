@@ -129,7 +129,12 @@ export default function PostForm(props: { userId: number }) {
       </label>
       <button
         className={styles.postbutton}
-        onClick={async () => await createPost()}
+        onClick={async () => {
+          await createPost();
+          await setTitle('');
+          await setPostDescription('');
+          await setPostGenre('');
+        }}
       >
         Create new post
       </button>
