@@ -60,7 +60,7 @@ export default function LoginForm(props: Props) {
         className={styles.loginbutton}
         onClick={async () => await login()}
       >
-        log in
+        Log in
       </button>
       {error !== '' && <div className={styles.loginerror}>{error}</div>}
     </form>

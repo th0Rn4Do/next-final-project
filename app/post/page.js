@@ -17,7 +17,7 @@ export default async function NewPostPage() {
   const sessionTokenCookie = cookies().get('sessionToken');
 
   const user = await getUserBySessionToken(sessionTokenCookie.value);
-  console.log(user);
+  // console.log(user);
   // 2. check if the sessionToken has a valid session
   const session =
     sessionTokenCookie &&
@@ -30,10 +30,10 @@ export default async function NewPostPage() {
       <div>
         <h1>FindAmusician - Create new post</h1>
       </div>
-    <div className={styles.postformborder}>
-    <PostForm userId={user.id} />
-</div>
-    { /* return;  <main>FindAmusician - New post page</main>; */ }
+      <div className={styles.postformborder}>
+        <PostForm userId={user.id} />
+      </div>
+      {/* return;  <main>FindAmusician - New post page</main>; */}
     </>
   );
 }

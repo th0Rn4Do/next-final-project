@@ -34,6 +34,7 @@ export default async function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body className={inter.className}>
+
         <div className={styles.container}>
           <div className={styles.navbarorientation}>
             <nav className={styles.navigationbar}>
@@ -74,7 +75,7 @@ export default async function RootLayout({ children }: Props) {
               </div>
             </nav>
           </div>
-          <section className={styles.bodystylings}></section>
+          <section className={styles.bodystylings} />
           <CookieBanner />
           {children}
         </div>

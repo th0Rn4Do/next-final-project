@@ -1,12 +1,11 @@
-.loginbutton {
+.postbutton {
   background-color: rgb(244, 162, 97);
   color: rgb(38, 70, 83);
   border-radius: 5px;
   border: 1px solid;
   cursor: pointer;
-  width: 68px;
+  width: 120px;
   height: 24px;
-  margin: 1rem;
 
   &:hover {
     background-color: rgb(38, 70, 83);
@@ -14,6 +13,6 @@
   }
 }
 
-.loginerror {
+.posterror {
   background-color: rgb(227, 49, 49);
 }

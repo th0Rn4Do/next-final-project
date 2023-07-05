@@ -53,7 +53,7 @@ export const createUser = cache(
     personalDescription: string,
     musicInstrument: string,
   ) => {
-    console.log(passwordHash);
+    // console.log(passwordHash);
     const [user] = await sql<User[]>`
     INSERT INTO users
       (username, password_hash, first_name, last_name, genre, personal_description, music_instrument)
@@ -84,4 +84,30 @@ export const getUserBySessionToken = cache(async (token: string) => {
   `;
 
   return user;
+});
+
+export const getUserByUserId = cache(async (userId: number) => {
+  const [user] = await sql<User[]>`
+    SELECT
+      username,
+      first_name
+    FROM
+      users
+    WHERE
+      users.id = ${userId}
+ `;
+
+  return user;
+});
+
+export const getAllUsers = cache(async () => {
+  const users = await sql<User[]>`
+  SELECT
+    users.id,
+    users.username
+  FROM
+    users
+  `;
+
+  return users;
 });

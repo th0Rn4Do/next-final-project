@@ -1,3 +1,4 @@
+/*
 import sjson from 'secure-json-parse';
 
 export function parseJson(
@@ -7,6 +8,19 @@ export function parseJson(
 
   try {
     return sjson(stringifiedJson);
+  } catch {
+    return undefined;
+  }
+}
+*/
+
+import sjson from 'secure-json-parse';
+
+export function parseJson(string) {
+  if (!string) return undefined;
+
+  try {
+    return sjson(string);
   } catch {
     return undefined;
   }

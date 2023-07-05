@@ -11,6 +11,11 @@ type PostWithPasswordHash = Post & {
   personalDescription: string;
   musicInstrument: string;
 };
+
+type PostWithUser = Post & {
+  username: string;
+};
+
 /*
 type UserWithPasswordHash = User & {
   passwordHash: string;
@@ -95,4 +100,61 @@ export const getUserBySessionToken = cache(async (token: string) => {
   `;
 
   return user;
+});
+
+export const getAllPosts = cache(async () => {
+  const posts = await sql<Post[]>`
+  SELECT
+    posts.id,
+    posts.title,
+    posts.user_id,
+    posts.post_description,
+    posts.post_genre
+  FROM
+    posts
+  `;
+
+  return posts;
+});
+
+export const getAllPostsWithUserId = cache(async () => {
+  const posts = await sql<PostWithUser[]>`
+  SELECT
+    posts.id,
+    posts.title,
+    posts.user_id,
+    posts.post_description,
+    posts.post_genre,
+    users.id,
+    users.username
+  FROM
+    posts
+  INNER JOIN
+    users ON (
+      posts.user_id = users.id
+      )
+
+  `;
+
+  return posts;
+});
+
+export const getAllPostsByUserId = cache(async (userId: number) => {
+  const posts = await sql<Post[]>`
+  SELECT
+    posts.id,
+    posts.title,
+    posts.user_id,
+    posts.post_description,
+    posts.post_genre
+  FROM
+    posts
+  INNER JOIN
+    users ON (
+      users.id = ${userId} AND
+      users.id = posts.user_id
+      )
+  `;
+
+  return posts;
 });

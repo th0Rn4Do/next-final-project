@@ -1,11 +1,7 @@
-import crypto from 'node:crypto';
-import bcrypt from 'bcrypt';
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createPost } from '../../../database/posts';
-import { createSession } from '../../../database/sessions';
-import { createUser, getUserByUsername } from '../../../database/users';
 import { User } from '../../../migrations/1687334782-createUsers';
 import { Post } from '../../../migrations/1687631080-createPosts';
 import { secureCookieOptions } from '../../../util/cookies';
@@ -35,10 +31,10 @@ export async function POST(
   // 1. get the credentials from the body
   const result = postSchema.safeParse(body);
 
-  console.log(result);
+  // console.log(result);
 
   // 2. verify the user data and check that the name is not taken
- /* if (!result.success) {
+  if (!result.success) {
     // zod send you details about the error
     // console.log(result.error);
     return NextResponse.json(
@@ -47,7 +43,7 @@ export async function POST(
       },
       { status: 400 },
     );
-  } */
+  }
 
   /*
   if (await getUserByUsername(result.data.username)) {
@@ -113,5 +109,5 @@ export async function POST(
   });
 */
   // 7. return the new user to the client
-  return NextResponse.json({ user: newPost });
+  return NextResponse.json({ post: newPost });
 }

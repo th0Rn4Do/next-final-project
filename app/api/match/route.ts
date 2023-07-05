@@ -1,40 +1,35 @@
-import crypto from 'node:crypto';
-import bcrypt from 'bcrypt';
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createSession } from '../../../../database/sessions';
-import { createUser, getUserByUsername } from '../../../../database/users';
-import { User } from '../../../../migrations/1687334782-createUsers';
-import { secureCookieOptions } from '../../../../util/cookies';
+import { createMatch } from '../../../database/matches';
+import { createPost } from '../../../database/posts';
+import { User } from '../../../migrations/1687334782-createUsers';
+import { Post } from '../../../migrations/1687631080-createPosts';
+import { Match } from '../../../migrations/1687631099-createMatches';
+import { secureCookieOptions } from '../../../util/cookies';
 
 type Error = {
   error: string;
 };
 
-export type RegisterResponseBodyPost =
+export type CreateMatchResponseBodyMatch =
   | {
-      user: User;
+      match: Match;
     }
   | Error;
 
-const userSchema = z.object({
-  username: z.string().min(1),
-  password: z.string().min(1),
-  firstName: z.string().min(1),
-  lastName: z.string().min(0),
-  genre: z.string().min(1),
-  personalDescription: z.string().min(0),
-  musicInstrument: z.string().min(0),
+const matchSchema = z.object({
+  postId: z.number().min(1),
+  userId: z.number().min(1),
 });
 
 export async function POST(
   request: NextRequest,
-): Promise<NextResponse<RegisterResponseBodyPost>> {
+): Promise<NextResponse<CreateMatchResponseBodyMatch>> {
   const body = await request.json();
 
   // 1. get the credentials from the body
-  const result = userSchema.safeParse(body);
+  const result = matchSchema.safeParse(body);
 
   // console.log(result);
 
@@ -44,12 +39,13 @@ export async function POST(
     // console.log(result.error);
     return NextResponse.json(
       {
-        error: 'username or password missing',
+        error: 'match missing',
       },
       { status: 400 },
     );
   }
 
+  /*
   if (await getUserByUsername(result.data.username)) {
     // zod send you details about the error
     // console.log(result.error);
@@ -60,27 +56,22 @@ export async function POST(
       { status: 406 },
     );
   }
+*/
 
+  /*
   // 3. hash the password
   const passwordHash = await bcrypt.hash(result.data.password, 10);
+*/
 
   // 4. store the credentials in the db
-  const newUser = await createUser(
-    result.data.username,
-    passwordHash,
-    result.data.firstName,
-    result.data.lastName,
-    result.data.genre,
-    result.data.personalDescription,
-    result.data.musicInstrument,
-  );
+  const newMatch = await createMatch(result.data.userId, result.data.postId);
 
-  if (!newUser) {
+  if (!newMatch) {
     // zod send you details about the error
     // console.log(result.error);
     return NextResponse.json(
       {
-        error: 'Error creating the new user',
+        error: 'Error creating the new match',
       },
       { status: 500 },
     );
@@ -89,10 +80,11 @@ export async function POST(
   // We are sure the user is authenticated
 
   // 5. Create a token
-  const token = crypto.randomBytes(100).toString('base64');
+  /* const token = crypto.randomBytes(100).toString('base64'); */
   // 6. Create the session record
 
-  const session = await createSession(token, newUser.id);
+  /*
+  const session = await createSession(token, newPost.id);
 
   if (!session) {
     return NextResponse.json(
@@ -102,14 +94,15 @@ export async function POST(
       { status: 500 },
     );
   }
+*/
 
   // 7. Send the new cookie in the headers
-  cookies().set({
+  /* cookies().set({
     name: 'sessionToken',
     value: session.token,
     ...secureCookieOptions,
   });
-
+*/
   // 7. return the new user to the client
-  return NextResponse.json({ user: newUser });
+  return NextResponse.json({ match: newMatch });
 }

@@ -1,10 +1,10 @@
 import { cookies } from 'next/headers';
 import { notFound, redirect } from 'next/navigation';
-import { getValidSessionByToken } from '../../../database/sessions';
+import { getValidSessionByToken } from '../../../../database/sessions';
 import {
   getUserBySessionToken,
   getUserByUsername,
-} from '../../../database/users';
+} from '../../../../database/users';
 import styles from './page.module.scss';
 
 type Props = {
@@ -42,7 +42,9 @@ export default async function ProfileUsernamePage({ params }: Props) {
 
   return (
     <>
-      <div>id: {user.id}</div>
+      <div>
+        <h1>Edit: {user.username}</h1>
+      </div>
       <section className={styles.sectionForUserData}>
         <div className={styles.boxesForUserData}>
           <div>username: {user.username}</div>
