@@ -23,7 +23,7 @@ const matchSchema = z.object({
   userId: z.number().min(1),
 });
 
-export async function MATCH(
+export async function POST(
   request: NextRequest,
 ): Promise<NextResponse<CreateMatchResponseBodyMatch>> {
   const body = await request.json();

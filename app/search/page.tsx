@@ -8,6 +8,7 @@ import {
 import { getValidSessionByToken } from '../../database/sessions';
 import { getAllUsers, getUserBySessionToken } from '../../database/users';
 import { MatchButton } from '../MatchButton';
+import MatchForm from '../MatchForm';
 import styles from './page.module.scss';
 
 type Props = {
@@ -36,7 +37,7 @@ export default async function SearchPage({ params }: Props) {
   // console.log(allUsers);
 
   const allPostsWithUser = await getAllPostsWithUserId();
-  console.log(allPostsWithUser);
+  // console.log(allPostsWithUser);
 
   return (
     <>
@@ -58,7 +59,7 @@ export default async function SearchPage({ params }: Props) {
                 <br />
                 {post.postGenre}
                 <br />
-                <MatchButton />
+                <MatchForm postId={post.id} userId={post.userId} />
               </div>
             </div>
           );
