@@ -12,5 +12,4 @@ export async function logout() {
 
   // set the cookie to be expired
   await cookies().set('sessionToken', '', { maxAge: -1 });
-
 }
