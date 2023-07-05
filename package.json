@@ -7,12 +7,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "migrate": "dotenv -- ley --require tsm"
+    "migrate": "ley --require tsm"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
-    "dotenv-cli": "^7.2.1",
-    "dotenv-safe": "^8.2.0",
+    "dotenv": "^16.3.1",
     "ley": "^0.8.1",
     "next": "13.4.6",
     "postgres": "^3.3.5",
@@ -27,7 +26,6 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
-    "@types/dotenv-safe": "^8.1.2",
     "@types/react": "^18.2.13",
     "@types/react-dom": "^18.2.6",
     "eslint-config-upleveled": "^5.0.0",

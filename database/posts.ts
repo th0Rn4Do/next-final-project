@@ -125,6 +125,7 @@ export const getAllPostsWithUserId = cache(async () => {
     posts.user_id,
     posts.post_description,
     posts.post_genre,
+    users.id,
     users.username
   FROM
     posts
