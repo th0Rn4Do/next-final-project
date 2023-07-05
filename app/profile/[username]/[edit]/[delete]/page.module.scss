@@ -1,3 +1,28 @@
+.topRowEditButton {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+
+  a {
+    background-color: transparent;
+    text-decoration: none;
+
+    &:hover {
+      transform: scale(1.02);
+      text-decoration: none;
+      color: rgb(231, 111, 81);
+    }
+  }
+
+  .hyperlinks {
+    background-color: transparent;
+  }
+}
+
 .sectionForUserData {
   display: flex;
 }

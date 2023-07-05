@@ -1,4 +1,5 @@
 import { cookies } from 'next/headers';
+import Link from 'next/link';
 import { notFound, redirect } from 'next/navigation';
 import { getValidSessionByToken } from '../../../../../database/sessions';
 import {
@@ -44,6 +45,9 @@ export default async function ProfileUsernamePage({ params }: Props) {
     <>
       <div>
         <h1>Delete: {user.username}?</h1>
+      </div>
+      <div className={styles.topRowEditButton}>
+        <Link href={`/profile/${user.username}/edit`}>⚙️ Edit profile</Link>
       </div>
       <section className={styles.sectionForUserData}>
         <div className={styles.boxesForUserData}>
