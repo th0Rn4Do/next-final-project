@@ -42,18 +42,21 @@ export default function EditForm({ user }: Props) {
       <br />
       {`id on edit = ${onEditId}`}
       <br />
-      <button
-        className={styles.editbutton}
-        onClick={() => setOnEditId(user.id)}
-      >
-        Edit
-      </button>
-      <button
-        className={styles.editbutton}
-        onClick={() => setOnEditId(undefined)}
-      >
-        Save
-      </button>
+      {user.id === onEditId ? (
+        <button
+          className={styles.editbutton}
+          onClick={() => setOnEditId(undefined)}
+        >
+          Save
+        </button>
+      ) : (
+        <button
+          className={styles.editbutton}
+          onClick={() => setOnEditId(user.id)}
+        >
+          Edit
+        </button>
+      )}
     </div>
   );
 }
