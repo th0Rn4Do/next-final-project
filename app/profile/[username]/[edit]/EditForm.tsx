@@ -26,6 +26,9 @@ export default function EditForm({ user }: Props) {
         First Name
         <input
           value={user.id !== onEditId ? user.firstName : onEditFirstNameInput}
+          onChange={(event) =>
+            setOnEditFirstNameInput(event.currentTarget.value)
+          }
           disabled={user.id !== onEditId}
         />
       </label>
@@ -34,6 +37,9 @@ export default function EditForm({ user }: Props) {
         Last Name
         <input
           value={user.id !== onEditId ? user.lastName : onEditLastNameInput}
+          onChange={(event) =>
+            setOnEditLastNameInput(event.currentTarget.value)
+          }
           disabled={user.id !== onEditId}
         />
       </label>
@@ -42,6 +48,7 @@ export default function EditForm({ user }: Props) {
         Genre
         <input
           value={user.id !== onEditId ? user.genre : onEditGenreInput}
+          onChange={(event) => setOnEditGenreInput(event.currentTarget.value)}
           disabled={user.id !== onEditId}
         />
       </label>
@@ -54,6 +61,9 @@ export default function EditForm({ user }: Props) {
               ? user.personalDescription
               : onEditPersonalDescriptionInput
           }
+          onChange={(event) =>
+            setOnEditPersonalDescriptionInput(event.currentTarget.value)
+          }
           disabled={user.id !== onEditId}
         />
       </label>
@@ -65,6 +75,9 @@ export default function EditForm({ user }: Props) {
             user.id !== onEditId
               ? user.musicInstrument
               : onEditMusicInstrumentInput
+          }
+          onChange={(event) =>
+            setOnEditMusicInstrumentInput(event.currentTarget.value)
           }
           disabled={user.id !== onEditId}
         />
