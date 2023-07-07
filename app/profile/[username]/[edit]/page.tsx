@@ -5,6 +5,7 @@ import {
   getUserBySessionToken,
   getUserByUsername,
 } from '../../../../database/users';
+import EditForm from './EditForm';
 import styles from './page.module.scss';
 
 type Props = {
@@ -43,35 +44,7 @@ export default async function EditProfileUsernamePage({ params }: Props) {
 
   return (
     <div>
-      <label>
-        First Name
-        <input value={user.firstName} />
-      </label>
-      <br />
-      <label>
-        Last Name
-        <input value={user.lastName} />
-      </label>
-      <br />
-      <label>
-        Genre
-        <input value={user.genre} />
-      </label>
-      <br />
-      <label>
-        Personal description
-        <input value={user.personalDescription} />
-      </label>
-      <br />
-      <label>
-        Music instrument
-        <input value={user.musicInstrument} />
-      </label>
-      <br />
-      <br />
-      <button className={styles.editbutton}>Create</button>
-      {JSON.stringify(user)}
-      <button className={styles.editbutton}>Delete</button>
+      <EditForm user={user} />
     </div>
   );
 }

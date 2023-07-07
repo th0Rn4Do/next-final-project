@@ -1,19 +1,22 @@
-.registerbutton {
-  background-color: rgb(244, 162, 97);
-  color: rgb(38, 70, 83);
+.editbutton {
+  background-color: rgb(249, 218, 210);
+  // color: white;
   border-radius: 5px;
-  border: 1px solid;
+  border: 0px;
+  border-color: transparent;
   cursor: pointer;
   width: 68px;
   height: 24px;
-  margin-right: 1rem;
 
   &:hover {
-    background-color: rgb(38, 70, 83);
-    color: rgb(244, 162, 97);
+    // background-color: white;
+    background-color: rgb(231, 111, 81);
+    transform: scale(1.02);
+    text-decoration: none;
+    color: white;
   }
 }
 
-.registererror {
+.error {
   background-color: rgb(227, 49, 49);
 }
