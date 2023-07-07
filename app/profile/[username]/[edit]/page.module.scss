@@ -66,3 +66,30 @@
   border-radius: 120px;
   font-size: 20px;
 }
+
+.backgroundeditbutton {
+  background-color: transparent;
+}
+
+.editbutton {
+  background-color: rgb(249, 218, 210);
+  // color: white;
+  border-radius: 5px;
+  border: 0px;
+  border-color: transparent;
+  cursor: pointer;
+  width: 68px;
+  height: 24px;
+
+  &:hover {
+    // background-color: white;
+    background-color: rgb(231, 111, 81);
+    transform: scale(1.02);
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.error {
+  background-color: rgb(227, 49, 49);
+}

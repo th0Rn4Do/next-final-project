@@ -111,3 +111,40 @@ export const getAllUsers = cache(async () => {
 
   return users;
 });
+
+export const updateUserById = cache(
+  async (
+    id: number,
+    firstName: string,
+    lastName: string,
+    genre: string,
+    personalDescription?: string,
+    musicInstrument?: string,
+  ) => {
+    const [user] = await sql<User[]>`
+      UPDATE users
+      SET
+        first_name = ${firstName},
+        last_name = ${lastName},
+        genre = ${genre},
+        personal_description = ${personalDescription || null},
+        music_instrument = ${musicInstrument || null}
+      WHERE
+        id = ${id}
+        RETURNING *
+    `;
+
+    return user;
+  },
+);
+
+export const deleteUserById = cache(async (id: number) => {
+  const [user] = await sql<User[]>`
+    DELETE FROM
+      users
+    WHERE
+      id = ${id}
+    RETURNING *
+  `;
+  return user;
+});

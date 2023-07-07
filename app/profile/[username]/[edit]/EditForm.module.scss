@@ -1,0 +1,19 @@
+.registerbutton {
+  background-color: rgb(244, 162, 97);
+  color: rgb(38, 70, 83);
+  border-radius: 5px;
+  border: 1px solid;
+  cursor: pointer;
+  width: 68px;
+  height: 24px;
+  margin-right: 1rem;
+
+  &:hover {
+    background-color: rgb(38, 70, 83);
+    color: rgb(244, 162, 97);
+  }
+}
+
+.registererror {
+  background-color: rgb(227, 49, 49);
+}

@@ -14,7 +14,7 @@ type Props = {
   };
 };
 
-export default async function ProfileUsernamePage({ params }: Props) {
+export default async function DeleteProfileUsernamePage({ params }: Props) {
   const user = await getUserByUsername(params.username);
 
   if (!user) {
