@@ -10,34 +10,64 @@ type Props = {
 
 export default function EditForm({ user }: Props) {
   const [onEditId, setOnEditId] = useState<number>();
+  const [onEditFirstNameInput, setOnEditFirstNameInput] = useState('');
+  const [onEditLastNameInput, setOnEditLastNameInput] = useState('');
+  const [onEditGenreInput, setOnEditGenreInput] = useState('');
+  const [onEditPersonalDescriptionInput, setOnEditPersonalDescriptionInput] =
+    useState('');
+  const [onEditMusicInstrumentInput, setOnEditMusicInstrumentInput] =
+    useState('');
 
-  console.log(user);
+  // console.log(user);
 
   return (
     <div>
       <label>
         First Name
-        <input value={user.firstName} />
+        <input
+          value={user.id !== onEditId ? user.firstName : onEditFirstNameInput}
+          disabled={user.id !== onEditId}
+        />
       </label>
       <br />
       <label>
         Last Name
-        <input value={user.lastName} />
+        <input
+          value={user.id !== onEditId ? user.lastName : onEditLastNameInput}
+          disabled={user.id !== onEditId}
+        />
       </label>
       <br />
       <label>
         Genre
-        <input value={user.genre} />
+        <input
+          value={user.id !== onEditId ? user.genre : onEditGenreInput}
+          disabled={user.id !== onEditId}
+        />
       </label>
       <br />
       <label>
         Personal description
-        <input value={user.personalDescription} />
+        <input
+          value={
+            user.id !== onEditId
+              ? user.personalDescription
+              : onEditPersonalDescriptionInput
+          }
+          disabled={user.id !== onEditId}
+        />
       </label>
       <br />
       <label>
         Music instrument
-        <input value={user.musicInstrument} />
+        <input
+          value={
+            user.id !== onEditId
+              ? user.musicInstrument
+              : onEditMusicInstrumentInput
+          }
+          disabled={user.id !== onEditId}
+        />
       </label>
       <br />
       {`id on edit = ${onEditId}`}
@@ -52,7 +82,14 @@ export default function EditForm({ user }: Props) {
       ) : (
         <button
           className={styles.editbutton}
-          onClick={() => setOnEditId(user.id)}
+          onClick={() => {
+            setOnEditId(user.id);
+            setOnEditFirstNameInput(user.firstName);
+            setOnEditLastNameInput(user.lastName);
+            setOnEditGenreInput(user.genre);
+            setOnEditPersonalDescriptionInput(user.personalDescription);
+            setOnEditMusicInstrumentInput(user.musicInstrument);
+          }}
         >
           Edit
         </button>
