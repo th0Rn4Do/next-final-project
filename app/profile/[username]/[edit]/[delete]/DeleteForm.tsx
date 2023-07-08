@@ -1,14 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { User } from '../../../../migrations/1687334782-createUsers';
-import styles from './EditForm.module.scss';
+import { User } from '../../../../../migrations/1687334782-createUsers';
+import styles from './DeleteForm.module.scss';
 
 type Props = {
   user: User[];
 };
 
-export default function EditForm({ user }: Props) {
+export default function DeleteForm({ user }: Props) {
   const [onEditId, setOnEditId] = useState<number>();
   const [onEditFirstNameInput, setOnEditFirstNameInput] = useState('');
   const [onEditLastNameInput, setOnEditLastNameInput] = useState('');
