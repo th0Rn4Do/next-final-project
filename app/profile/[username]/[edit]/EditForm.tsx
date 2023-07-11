@@ -1,11 +1,13 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+import { Router } from 'next/router';
 import { useState } from 'react';
 import { User } from '../../../../migrations/1687334782-createUsers';
 import styles from './EditForm.module.scss';
 
 type Props = {
-  user: User[];
+  user: User;
 };
 
 export default function EditForm({ user }: Props) {
@@ -17,24 +19,31 @@ export default function EditForm({ user }: Props) {
     useState('');
   const [onEditMusicInstrumentInput, setOnEditMusicInstrumentInput] =
     useState('');
+  const router = useRouter();
 
   // console.log(user);
 
   async function deleteAnimalById(id: number) {
-    const response = await fetch(`api/profile/${id}`, {
+    const response = await fetch(`/api/delete/${id}`, {
       method: 'DELETE',
     });
 
     const data = await response.json();
+    // Router.push.....
+    router.push(`/login`);
+
+    router.refresh();
   }
 
+  /* console.log('oneditfristnameinput', onEditFirstNameInput); */
+
   async function updateUserById(id: number) {
-    const response = await fetch(`api/profile/${id}`, {
+    const response = await fetch(`/api/edit/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
         firstName: onEditFirstNameInput,
         lastName: onEditLastNameInput,
-        gerne: onEditGenreInput,
+        genre: onEditGenreInput,
         personalDescription: onEditPersonalDescriptionInput,
         musicInstrument: onEditMusicInstrumentInput,
       }),
@@ -135,12 +144,12 @@ export default function EditForm({ user }: Props) {
         </button>
       )}
 
-      <button
+     { /* <button
         className={styles.editbutton}
         onClick={async () => await deleteAnimalById(user.id)}
       >
         Delete
-      </button>
+      </button> */ }
     </div>
   );
 }

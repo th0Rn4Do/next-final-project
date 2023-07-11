@@ -3,16 +3,16 @@ import bcrypt from 'bcrypt';
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createSession } from '../../../database/sessions';
+import { createSession } from '../../../../database/sessions';
 import {
   createUser,
   deleteUserById,
   getUserByUserId,
   getUserByUsername,
   updateUserById,
-} from '../../../database/users';
-import { User } from '../../../migrations/1687334782-createUsers';
-import { secureCookieOptions } from '../../../util/cookies';
+} from '../../../../database/users';
+import { User } from '../../../../migrations/1687334782-createUsers';
+import { secureCookieOptions } from '../../../../util/cookies';
 
 export type Error = {
   error: string;
@@ -57,6 +57,7 @@ export async function GET(
 
   return NextResponse.json({ user: user });
 }
+
 export async function PUT(
   request: NextRequest,
   { params }: { params: Record<string, string | string[]> },
@@ -72,6 +73,8 @@ export async function PUT(
       { status: 400 },
     );
   }
+
+  console.log(body);
 
   // zod please verify the body matches my schema
   const result = userSchema.safeParse(body);

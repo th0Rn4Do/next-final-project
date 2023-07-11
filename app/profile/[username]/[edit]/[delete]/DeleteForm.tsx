@@ -1,11 +1,13 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+import { Router } from 'next/router';
 import { useState } from 'react';
 import { User } from '../../../../../migrations/1687334782-createUsers';
 import styles from './DeleteForm.module.scss';
 
 type Props = {
-  user: User[];
+  user: User;
 };
 
 export default function DeleteForm({ user }: Props) {
@@ -17,24 +19,31 @@ export default function DeleteForm({ user }: Props) {
     useState('');
   const [onEditMusicInstrumentInput, setOnEditMusicInstrumentInput] =
     useState('');
+  const router = useRouter();
 
   // console.log(user);
 
   async function deleteAnimalById(id: number) {
-    const response = await fetch(`api/profile/${id}`, {
+    const response = await fetch(`/api/delete/${id}`, {
       method: 'DELETE',
     });
 
     const data = await response.json();
+    // Router.push.....
+    router.push(`/login`);
+
+    router.refresh();
   }
 
+  /* console.log('oneditfristnameinput', onEditFirstNameInput); */
+
   async function updateUserById(id: number) {
-    const response = await fetch(`api/profile/${id}`, {
+    const response = await fetch(`/api/edit/${id}`, {
       method: 'PUT',
       body: JSON.stringify({
         firstName: onEditFirstNameInput,
         lastName: onEditLastNameInput,
-        gerne: onEditGenreInput,
+        genre: onEditGenreInput,
         personalDescription: onEditPersonalDescriptionInput,
         musicInstrument: onEditMusicInstrumentInput,
       }),
@@ -45,7 +54,7 @@ export default function DeleteForm({ user }: Props) {
 
   return (
     <div>
-      <label>
+      {/*  <label>
         First Name
         <input
           value={user.id !== onEditId ? user.firstName : onEditFirstNameInput}
@@ -108,9 +117,9 @@ export default function DeleteForm({ user }: Props) {
       <br />
       {`id on edit = ${onEditId}`}
       <br />
-      <br />
-      {user.id === onEditId ? (
-        <button
+      <br /> */}
+      {/*  {user.id === onEditId ? (
+         <button
           className={styles.editbutton}
           onClick={async () => {
             setOnEditId(undefined);
@@ -133,13 +142,13 @@ export default function DeleteForm({ user }: Props) {
         >
           Edit
         </button>
-      )}
+        )} */}
 
       <button
         className={styles.editbutton}
         onClick={async () => await deleteAnimalById(user.id)}
       >
-        Delete
+        Delete user
       </button>
     </div>
   );

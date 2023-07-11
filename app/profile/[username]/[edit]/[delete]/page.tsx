@@ -15,7 +15,7 @@ type Props = {
   };
 };
 
-export default async function EditProfileUsernamePage({ params }: Props) {
+export default async function DeleteProfileUsernamePage({ params }: Props) {
   // if the user is NOT logged in redirect to login
 
   // 1. Check if the sessionToken cookie exit
@@ -28,18 +28,18 @@ export default async function EditProfileUsernamePage({ params }: Props) {
   // 3. Either redirect or render the login form
   if (!session) redirect('/login');
 
-  const userBySession = !sessionTokenCookie.value
+  const user = !sessionTokenCookie.value
     ? undefined
     : await getUserBySessionToken(sessionTokenCookie.value);
 
-  const user = await getUserByUsername(params.username);
+  /* const user = await getUserByUsername(params.username); */
   /* const user = await getUserByUsername(params.username); */
 
-  if (!user) {
+  /*  if (!user) {
     notFound();
-  }
+  } */
 
-  if (user.id !== userBySession?.id) {
+  if (!user) {
     redirect('/');
   }
 

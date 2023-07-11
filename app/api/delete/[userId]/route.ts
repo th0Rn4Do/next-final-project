@@ -3,17 +3,17 @@ import bcrypt from 'bcrypt';
 import { cookies } from 'next/headers';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
-import { createSession } from '../../../database/sessions';
+import { createSession } from '../../../../database/sessions';
 import {
   createUser,
   deleteUserById,
   getUserByUserId,
   getUserByUsername,
   updateUserById,
-} from '../../../database/users';
-import { User } from '../../../migrations/1687334782-createUsers';
-import { secureCookieOptions } from '../../../util/cookies';
-import { Error } from '../edit/route';
+} from '../../../../database/users';
+import { User } from '../../../../migrations/1687334782-createUsers';
+import { secureCookieOptions } from '../../../../util/cookies';
+import { Error } from '../../edit/[userId]/route';
 
 type UserResponseBodyGet = { user: User } | Error;
 type UserResponseBodyDelete = { user: User } | Error;
