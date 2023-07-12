@@ -19,12 +19,6 @@ export default function HomePage() {
           </div> */}
           </nav>
           {/*}
-            <Image
-              src="/images/atestpic.jpeg"
-              alt="test"
-              width="200"
-              height="200"
-            />
           {/* </div> */}
           <div className={styles.backgroundoftextfield}>
             <div>
