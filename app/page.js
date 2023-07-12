@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import testpic from '../public/images/atestpic.jpeg';
 import LoginButton from './LoginButton';
 import styles from './page.module.scss';
 import RegisterButton from './RegisterButton';
