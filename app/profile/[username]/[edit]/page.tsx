@@ -50,7 +50,7 @@ export default async function EditProfileUsernamePage({ params }: Props) {
       </div>
       <section className={styles.topRowDeleteButton}>
         <Link href={`/profile/${user.username}/`}>My profile</Link>
-        <div>id: {user.id}</div>
+        <div> {/* id: {user.id} */} </div>
         <div>
           <Link href={`/profile/${user.username}/edit/delete`}>
             ❌ Delete user

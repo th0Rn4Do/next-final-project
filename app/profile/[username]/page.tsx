@@ -44,7 +44,7 @@ export default async function ProfileUsernamePage({ params }: Props) {
   return (
     <>
       <section className={styles.topRowEditButton}>
-        <div>id: {user.id}</div>
+        <div> {/* id: {user.id} */} </div>
         <div>
           <Link href={`/profile/${user.username}/edit`}>⚙️ Edit profile</Link>
         </div>
