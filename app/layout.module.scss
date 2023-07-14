@@ -13,7 +13,7 @@
 }
 
 .navigationbar {
-  background-color: rgb(196, 32, 155);
+  background: linear-gradient(to top, #09203f 0%, #537895 100%);
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -138,13 +138,13 @@
   .navigationbarrightside {
     display: flex;
     justify-content: flex-end;
-    background-color: rgb(196, 32, 155);
+    //    background-color: rgb(196, 32, 155);
     gap: 1rem;
   }
 }
 
 .footerbar {
-  background-color: aqua;
+  background-color: transparent;
   padding: 1rem;
   display: flex;
   gap: 1rem;
@@ -166,8 +166,9 @@
 }
 
 .copyright {
-  background-color: aqua;
+  background-color: rgb(38, 70, 83);
   padding: 1rem;
   justify-content: space-evenly;
   text-align: center;
+  color: white;
 }
