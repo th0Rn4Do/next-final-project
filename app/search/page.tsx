@@ -50,15 +50,10 @@ export default async function SearchPage({ params }: Props) {
           return (
             <div key={`post-div-${post.id}`}>
               <div className={styles.boxForPostInSearch}>
-                {post.username}
-                <br />
-                <br />
-                {post.title}
-                <br />
-                {post.postDescription}
-                <br />
-                {post.postGenre}
-                <br />
+                <h2>{post.title}</h2>
+                <p>{post.postDescription}</p>
+                <p>Genre: {post.postGenre}</p>
+                <p>posted by: {post.username}</p>
                 <MatchForm postId={post.id} userId={post.userId} />
               </div>
             </div>

@@ -78,7 +78,7 @@ export default async function RootLayout({ children }: Props) {
           <CookieBanner />
           {children}
         </div>
-        <footer>
+        <footer className={styles.wholefooter}>
           <nav className={styles.footerbar}>
             <div className={styles.hyperlinks}>
               <Link href="/faqs">FAQs</Link>

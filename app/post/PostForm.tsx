@@ -113,13 +113,15 @@ export default function PostForm(props: { userId: number }) {
           onChange={(event) => setTitle(event.currentTarget.value)}
         />
       </label>
+      <br />
       <label>
-        Descripton:
+        Description:
         <textarea
           value={postDescription}
           onChange={(event) => setPostDescription(event.currentTarget.value)}
         />
       </label>
+      <br />
       <label>
         Genre:
         <textarea

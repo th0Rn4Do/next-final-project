@@ -27,7 +27,9 @@
   padding: 3rem;
   //border: 8px solid rgb(216, 216, 216);
   border: 4px solid;
-  border-image: linear-gradient(to left top, #ffffff, #000000) 1;
+  border-image: linear-gradient(to right bottom, #09203f, #537895) -1;
+  /* linear-gradient not visible with border-radius: change "-1" to "1" at the end
+  border-image: linear-gradient(to right bottom, #09203f, #dfe3e6) 1; */
   box-sizing: border-box;
   border-radius: 20px;
   font-size: 20px;

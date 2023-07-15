@@ -89,7 +89,10 @@
   // margin-right: 150px;
   // margin-bottom: 2rem;
   padding: 0.5rem;
-  border: 4px solid rgb(216, 216, 216);
+  border: 4px solid /* rgb(216, 216, 216) */;
+  border-image: linear-gradient(to right bottom, #09203f, #537895) -1;
+  /* linear-gradient not visible with border-radius: change "-1" to "1" at the end
+  border-image: linear-gradient(to right bottom, #09203f, #dfe3e6) 1; */
   // box-sizing: border-box;
   border-radius: 20px;
   // font-size: 20px;
