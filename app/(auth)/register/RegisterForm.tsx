@@ -44,88 +44,89 @@ export default function RegisterForm() {
   }
 
   return (
-    <form onSubmit={(event) => event.preventDefault()}>
-      <label>
-        username:
+    <form className={styles.form} onSubmit={(event) => event.preventDefault()}>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Username</label>
         <input
+          className={styles.formInput}
           value={username}
           onChange={(event) => setUsername(event.currentTarget.value)}
         />
-      </label>
-      <br />
-      <label>
-        password:
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Password</label>
         <input
+          className={styles.formInput}
           type="password"
           value={password}
           onChange={(event) => setPassword(event.currentTarget.value)}
         />
-      </label>
-      <br />
-      <label>
-        First name:
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>First name</label>
         <input
+          className={styles.formInput}
           value={firstName}
           onChange={(event) => setFirstName(event.currentTarget.value)}
         />
-      </label>
-      <br />
-      <label>
-        Last name:
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Last name</label>
         <input
+          className={styles.formInput}
           value={lastName}
           onChange={(event) => setLastName(event.currentTarget.value)}
         />
-      </label>
-      <br />
-      <label>
-        Genre:
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Genre</label>
         <input
+          className={styles.formInput}
           value={genre}
           onChange={(event) => setGenre(event.currentTarget.value)}
         />
-      </label>
-      <br />
-      <label>
-        Personal description:
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Personal description</label>
         <textarea
+          className={styles.formTextarea}
           value={personalDescription}
           onChange={(event) =>
             setPersonalDescription(event.currentTarget.value)
           }
         />
-      </label>
-      <br />
-      <label>
-        Music instrument(s):
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Music instrument(s)</label>
         <textarea
+          className={styles.formTextarea}
           value={musicInstrument}
           onChange={(event) => setMusicInstrument(event.currentTarget.value)}
         />
-      </label>
-      <br />
-      <button
-        className={styles.registerbutton}
-        onClick={async () => await register()}
-      >
-        Sign up
-      </button>
-      <button
-        className={styles.registerbutton}
-        onClick={async () => {
-          await setUsername('');
-          await setPassword('');
-          await setFirstName('');
-          await setLastName('');
-          await setGenre('');
-          await setPersonalDescription('');
-          await setMusicInstrument('');
-        }}
-      >
-        Clear all
-      </button>
-      {/* <input type="reset" /> */}
-      {error !== '' && <div className={styles.registererror}>{error}</div>}
+      </div>
+      <div className={styles.formButton}>
+        <button
+          className={styles.button}
+          onClick={async () => await register()}
+        >
+          Sign up
+        </button>
+        <button
+          className={styles.button}
+          onClick={async () => {
+            await setUsername('');
+            await setPassword('');
+            await setFirstName('');
+            await setLastName('');
+            await setGenre('');
+            await setPersonalDescription('');
+            await setMusicInstrument('');
+          }}
+        >
+          Clear all
+        </button>
+      </div>
+      {error !== '' && <div className={styles.error}>{error}</div>}
     </form>
   );
 }

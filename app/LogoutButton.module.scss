@@ -1,26 +1,17 @@
-.backgroundlogoutbutton {
-  background-color: transparent;
-}
-
-.logoutbutton {
+.button {
   background-color: rgb(220, 234, 239);
-  // color: white;
+  font-size: 16px;
+  color: black;
   border-radius: 5px;
-  border: 0px;
-  border-color: transparent;
   cursor: pointer;
-  width: 68px;
-  height: 24px;
+  width: 100px;
+  padding: 3px;
+  text-decoration: none;
+  margin-left: 50px;
 
   &:hover {
-    // background-color: white;
-    background-color: rgb(38, 70, 83);
-    transform: scale(1.02);
-    text-decoration: underline;
+    background-color: rgb(32, 38, 57);
+    text-decoration: none;
     color: white;
   }
-}
-
-.error {
-  background-color: rgb(227, 49, 49);
 }

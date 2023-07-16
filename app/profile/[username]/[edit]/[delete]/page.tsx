@@ -32,29 +32,20 @@ export default async function DeleteProfileUsernamePage({ params }: Props) {
     ? undefined
     : await getUserBySessionToken(sessionTokenCookie.value);
 
-  /* const user = await getUserByUsername(params.username); */
-  /* const user = await getUserByUsername(params.username); */
-
-  /*  if (!user) {
-    notFound();
-  } */
-
   if (!user) {
     redirect('/');
   }
 
   return (
     <>
-      <div>
-        <h1>Delete: {user.username}?</h1>
-      </div>
-      <section>
-        <div className={styles.topRowDeleteButton}>
-          <Link href={`/profile/${user.username}/edit`}>⚙️ Edit profile</Link>
+      <section className={styles.topRowDeleteButton}>
+        <h1>Delete {user.username}'s Profile</h1>
+        <div>
+          <Link href={`/profile/${user.username}/edit`}>⚙️ My profile</Link>
         </div>
       </section>
       <section>
-        <div className={styles.boxesForUserData}>
+        <div className={styles.formborder}>
           <DeleteForm user={user} />
         </div>
       </section>

@@ -53,84 +53,33 @@ export default function PostForm(props: { userId: number }) {
   }
 
   return (
-    <form onSubmit={(event) => event.preventDefault()}>
-      {/* <label>
-        username:
+    <form className={styles.form} onSubmit={(event) => event.preventDefault()}>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Title</label>
         <input
-          value={username}
-          onChange={(event) => setUsername(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        password:
-        <input
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        First name:
-        <input
-          value={firstName}
-          onChange={(event) => setFirstName(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        Last name:
-        <input
-          value={lastName}
-          onChange={(event) => setLastName(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        Genre:
-        <input
-          value={genre}
-          onChange={(event) => setGenre(event.currentTarget.value)}
-        />
-      </label>
-      <label>
-        Personal description:
-        <input
-          value={personalDescription}
-          onChange={(event) =>
-            setPersonalDescription(event.currentTarget.value)
-          }
-        />
-      </label>
-      <label>
-        Music instrument:
-        <input
-          value={musicInstrument}
-          onChange={(event) => setMusicInstrument(event.currentTarget.value)}
-        />
-      </label> */}
-      <label>
-        Title:
-        <input
+          className={styles.formInput}
           value={title}
           onChange={(event) => setTitle(event.currentTarget.value)}
         />
-      </label>
-      <br />
-      <label>
-        Description:
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Description</label>
         <textarea
+          className={styles.formTextarea}
           value={postDescription}
           onChange={(event) => setPostDescription(event.currentTarget.value)}
         />
-      </label>
-      <br />
-      <label>
-        Genre:
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Music instrument(s)</label>
         <textarea
+          className={styles.formTextarea}
           value={postGenre}
           onChange={(event) => setPostGenre(event.currentTarget.value)}
         />
-      </label>
+      </div>
       <button
-        className={styles.postbutton}
+        className={styles.button}
         onClick={async () => {
           await createPost();
           await setTitle('');
@@ -140,7 +89,7 @@ export default function PostForm(props: { userId: number }) {
       >
         Create new post
       </button>
-      {error !== '' && <div className={styles.posterror}>{error}</div>}
+      {error !== '' && <div className={styles.error}>{error}</div>}
     </form>
   );
 }

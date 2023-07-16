@@ -38,35 +38,34 @@ export default async function RootLayout({ children }: Props) {
           <div className={styles.navbarorientation}>
             <nav className={styles.navigationbar}>
               <div className={styles.navigationbarleftside}>
-                <div className={styles.hyperlinks}>
+                <div className={styles.button}>
                   <Link href="/">Home</Link>
                 </div>
-                <div className={styles.navbarspace} />
               </div>
               <div className={styles.navigationbarrightside}>
-                <div className={styles.hyperlinks}>
+                <div className={styles.button}>
                   <Link href="/search">Search</Link>
                 </div>
                 {user ? (
                   <>
-                    <div className={styles.usershowinginnavbar}>
+                    <div className={styles.button}>
                       <Link href={`/profile/${user.username}`}>
                         {user.username}
                       </Link>
                     </div>
-                    <div className={styles.createpostbutton}>
+                    <div className={styles.button}>
                       <Link href="/post">Create post</Link>
                     </div>
-                    <div className={styles.logoutbutton}>
+                    <div>
                       <LogoutButton />
                     </div>
                   </>
                 ) : (
                   <>
-                    <div className={styles.registrationbutton}>
+                    <div className={styles.button}>
                       <Link href="/register">register</Link>
                     </div>
-                    <div className={styles.loginbutton}>
+                    <div className={styles.button}>
                       <Link href="/login">login</Link>
                     </div>
                   </>
@@ -78,7 +77,7 @@ export default async function RootLayout({ children }: Props) {
           <CookieBanner />
           {children}
         </div>
-        <footer className={styles.wholefooter}>
+        <footer>
           <nav className={styles.footerbar}>
             <div className={styles.hyperlinks}>
               <Link href="/faqs">FAQs</Link>

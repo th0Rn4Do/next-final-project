@@ -133,7 +133,6 @@ export const getAllPostsWithUserId = cache(async () => {
     users ON (
       posts.user_id = users.id
       )
-
   `;
 
   return posts;
@@ -154,6 +153,48 @@ export const getAllPostsByUserId = cache(async (userId: number) => {
       users.id = ${userId} AND
       users.id = posts.user_id
       )
+  `;
+
+  return posts;
+});
+
+export const getAllPostsByUser = cache(async (userId: number) => {
+  const posts = await sql<PostWithUser[]>`
+    SELECT
+      posts.id,
+      posts.title,
+      posts.user_id,
+      posts.post_description,
+      posts.post_genre,
+      users.id,
+      users.username
+    FROM
+      posts
+    INNER JOIN
+      users ON posts.user_id = users.id
+    WHERE
+      posts.user_id = ${userId}
+  `;
+
+  return posts;
+});
+
+export const getAllPostsFromOtherUsers = cache(async (userId: number) => {
+  const posts = await sql<PostWithUser[]>`
+    SELECT
+      posts.id,
+      posts.title,
+      posts.user_id,
+      posts.post_description,
+      posts.post_genre,
+      users.id,
+      users.username
+    FROM
+      posts
+    INNER JOIN
+      users ON posts.user_id = users.id
+    WHERE
+      posts.user_id != ${userId}
   `;
 
   return posts;

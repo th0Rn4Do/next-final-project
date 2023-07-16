@@ -1,23 +1,12 @@
 import { cookies } from 'next/headers';
-import { notFound, redirect } from 'next/navigation';
-import {
-  getAllPosts,
-  getAllPostsByUserId,
-  getAllPostsWithUserId,
-} from '../../database/posts';
+import { redirect } from 'next/navigation';
+import { getAllPostsFromOtherUsers } from '../../database/posts';
 import { getValidSessionByToken } from '../../database/sessions';
-import { getAllUsers, getUserBySessionToken } from '../../database/users';
-import { MatchButton } from '../MatchButton';
+import { getUserBySessionToken } from '../../database/users';
 import MatchForm from '../MatchForm';
 import styles from './page.module.scss';
 
-type Props = {
-  params: {
-    username: string;
-  };
-};
-
-export default async function SearchPage({ params }: Props) {
+export default async function SearchPage() {
   // if the user is NOT logged in redirect to login
 
   // 1. Check if the sessionToken cookie exit
@@ -27,41 +16,39 @@ export default async function SearchPage({ params }: Props) {
     sessionTokenCookie &&
     (await getValidSessionByToken(sessionTokenCookie.value));
 
-  // 3. Either redirect or render the login form
-  // if (!session) redirect('/login');
+  if (!session) {
+    redirect('/login');
+  }
 
-  const allPosts = await getAllPosts();
-  // console.log(allPosts);
+  const user = await getUserBySessionToken(sessionTokenCookie.value);
 
-  const allUsers = await getAllUsers();
-  // console.log(allUsers);
+  if (!user) {
+    redirect('/login');
+  }
 
-  const allPostsWithUser = await getAllPostsWithUserId();
-  // console.log(allPostsWithUser);
+  const posts = await getAllPostsFromOtherUsers(user.id);
 
   return (
     <>
-      <div>
-        <h1>FindAmusician - Search</h1>
-      </div>
-      <div className={styles.searchbar}>🔍 Search</div>
+      <h1 className={styles.header}>FindAmusician - 🔍 Search</h1>
+
       <section className={styles.boxForAllPostsInSearch}>
-        {allPostsWithUser.map((post) => {
+        {posts.map((post) => {
           return (
-            <div key={`post-div-${post.id}`}>
-              <div className={styles.boxForPostInSearch}>
-                <h2>{post.title}</h2>
-                <p>{post.postDescription}</p>
-                <p>Genre: {post.postGenre}</p>
-                <p>posted by: {post.username}</p>
+            <div key={`post-div-${post.id}`} className={styles.post}>
+              <h2 className={styles.subHeader}>{post.title}</h2>
+              <h2 className={styles.descriptionHeader}>Description</h2>
+              <div className={styles.description}>{post.postDescription}</div>
+              <h2 className={styles.genreHeader}>Genre</h2>
+              <div className={styles.genre}>{post.postGenre}</div>
+              <div className={styles.posted}>posted by: {post.username}</div>
+              <div className={styles.matchForm}>
                 <MatchForm postId={post.id} userId={post.userId} />
               </div>
             </div>
           );
         })}
       </section>
-      <div>{/* <SearchForm /> */}</div>
-      {/* <main>FindAmusician - Search</main> */}
     </>
   );
 }

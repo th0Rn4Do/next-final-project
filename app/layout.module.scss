@@ -13,7 +13,7 @@
 }
 
 .navigationbar {
-  background: linear-gradient(to right, #09203f 0%, #537895 100%);
+  background: linear-gradient(90deg, #09203f, #537895);
   padding: 16px;
   display: flex;
   justify-content: space-between;
@@ -22,107 +22,42 @@
   height: 25px;
   text-align: center;
   border-color: transparent;
-  color: white;
 
   a {
-    background-color: transparent;
     text-decoration: none;
-    color: white;
 
     &:hover {
       transform: scale(1.02);
-      text-decoration: underline;
+      text-decoration: none;
       color: white;
     }
   }
 
-  .hyperlinks {
-    background-color: transparent;
-  }
-
-  .registrationbutton {
+  .button {
     background-color: rgb(220, 234, 239);
-    // color: white;
+    color: black;
     border-radius: 5px;
-    border: 1px solid;
     cursor: pointer;
-    width: 68px;
-    height: 24px;
-    border-color: transparent;
+    width: 100px;
+    padding: 3px;
+    text-decoration: none;
+    box-shadow: black 0px 0px 10px 0px;
 
     &:hover {
-      // background-color: white;
-      background-color: rgb(38, 70, 83);
-    }
-  }
-
-  .loginbutton {
-    background-color: rgb(220, 234, 239);
-    // color: white;
-    border-radius: 5px;
-    border: 1px solid;
-    cursor: pointer;
-    width: 68px;
-    height: 24px;
-    border-color: transparent;
-
-    &:hover {
-      // background-color: white;
-      background-color: rgb(38, 70, 83);
-    }
-  }
-
-  .logoutbutton {
-    background-color: rgb(220, 234, 239);
-    // color: white;
-    border-radius: 5px;
-    border: 1px solid;
-    cursor: pointer;
-    width: 68px;
-    height: 24px;
-    border-color: transparent;
-
-    &:hover {
-      // background-color: white;
-      background-color: rgb(38, 70, 83);
-    }
-  }
-
-  .usershowinginnavbar {
-    background-color: rgb(220, 234, 239);
-    // color: white;
-    border-radius: 5px;
-    border: 1px solid;
-    cursor: pointer;
-    width: 68px;
-    height: 24px;
-    border-color: transparent;
-
-    &:hover {
-      // background-color: white;
-      background-color: rgb(38, 70, 83);
-      transform: scale(1.02);
-      text-decoration: underline;
+      background-color: #09203f;
+      text-decoration: none;
       color: white;
     }
-  }
 
-  .createpostbutton {
-    background-color: rgb(220, 234, 239);
-    // color: white;
-    border-radius: 5px;
-    border: 1px solid;
-    cursor: pointer;
-    width: 120px;
-    height: 24px;
-    border-color: transparent;
+    a {
+      text-decoration: none;
+      color: black;
 
-    &:hover {
-      // background-color: white;
-      background-color: rgb(38, 70, 83);
-      transform: scale(1.02);
-      text-decoration: underline;
-      color: white;
+      &:hover {
+        background-color: #09203f;
+        text-decoration: none;
+        color: white;
+      }
     }
   }
 
@@ -131,27 +66,17 @@
     justify-content: flex-start;
     background-color: transparent;
     gap: 1rem;
-    color: white;
-  }
-
-  .navbarspace {
-    background-color: transparent;
   }
 
   .navigationbarrightside {
     display: flex;
     justify-content: flex-end;
-    //    background-color: rgb(196, 32, 155);
     gap: 1rem;
   }
 }
 
-.wholefooter {
-  background: linear-gradient(to right, #09203f 0%, #537895 100%);
-}
-
 .footerbar {
-  background: transparent;
+  background: linear-gradient(90deg, #09203f, #537895);
   padding: 1rem;
   display: flex;
   gap: 1rem;
@@ -162,21 +87,19 @@
   text-align: center;
   margin-top: 8rem;
   position: relative;
-
   a {
-    background-color: transparent;
+    text-decoration: none;
     color: white;
-  }
 
-  .hyperlinks {
-    background-color: transparent;
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
 .copyright {
-  background-color: transparent;
-  padding: 1rem;
-  justify-content: space-evenly;
-  text-align: center;
+  background: linear-gradient(90deg, #09203f, #537895);
   color: white;
+  padding: 1rem;
+  text-align: center;
 }

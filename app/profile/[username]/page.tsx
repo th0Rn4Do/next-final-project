@@ -44,26 +44,36 @@ export default async function ProfileUsernamePage({ params }: Props) {
   return (
     <>
       <section className={styles.topRowEditButton}>
-        <div> {/* id: {user.id} */} </div>
+        <h1>{user.username}'s Profile</h1>
         <div>
           <Link href={`/profile/${user.username}/edit`}>⚙️ Edit profile</Link>
         </div>
       </section>
-      <section className={styles.sectionForUserData}>
-        <div className={styles.boxesForUserData}>
-          <div>username: {user.username}</div>
-          <br />
-          <div>First Name: {user.firstName}</div>
-          <br />
-          <div>Last Name: {user.lastName}</div>
-          <br />
-          <div>Genre: {user.genre}</div>
-          <br />
-          <div>Music instrument: {user.musicInstrument}</div>
-        </div>
-        <div className={styles.boxesForPersonalDescription}>
-          <div>
-            Personal description: <br /> <br /> {user.personalDescription}
+      <section className={styles.userData}>
+        <div className={styles.profileCard}>
+          <div className={styles.profileCardContent}>
+            <div className={styles.label}>Username</div>
+            <div>{user.username}</div>
+          </div>
+          <div className={styles.profileCardContent}>
+            <div className={styles.label}>First Name</div>
+            <div>{user.firstName}</div>
+          </div>
+          <div className={styles.profileCardContent}>
+            <div className={styles.label}>Last Name</div>
+            <div>{user.lastName}</div>
+          </div>
+          <div className={styles.profileCardContent}>
+            <div className={styles.label}>Genre</div>
+            <div>{user.genre}</div>
+          </div>
+          <div className={styles.profileCardContent}>
+            <div className={styles.label}>Music Instrument</div>
+            <div>{user.musicInstrument}</div>
+          </div>
+          <div className={styles.profileCardContent}>
+            <div className={styles.label}>Personal Description</div>
+            <div>{user.personalDescription}</div>
           </div>
         </div>
       </section>

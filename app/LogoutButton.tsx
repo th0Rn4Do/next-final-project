@@ -12,21 +12,19 @@ export function LogoutButton(props: Props) {
   const router = useRouter();
   return (
     <form>
-      <div className={styles.backgroundlogoutbutton}>
-        <button
-          className={styles.logoutbutton}
-          formAction={async () => {
-            await logout();
+      <button
+        className={styles.button}
+        formAction={async () => {
+          await logout();
 
-            router.push(
-              getSafeReturnToPath(props.returnTo) || (`/login` as Route),
-            );
-            router.refresh();
-          }}
-        >
-          logout
-        </button>
-      </div>
+          router.push(
+            getSafeReturnToPath(props.returnTo) || (`/login` as Route),
+          );
+          router.refresh();
+        }}
+      >
+        logout
+      </button>
     </form>
   );
 }

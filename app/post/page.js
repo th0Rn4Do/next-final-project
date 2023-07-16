@@ -1,5 +1,6 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
+import { getAllPostsByUser } from '../../database/posts';
 import { getValidSessionByToken } from '../../database/sessions';
 import { getUserBySessionToken } from '../../database/users';
 import styles from './page.module.scss';
@@ -25,15 +26,32 @@ export default async function NewPostPage() {
 
   // 3. Either redirect or render the login form
   if (!session) redirect('/login');
+
+  const posts = await getAllPostsByUser(user.id);
+
   return (
     <>
       <div>
-        <h1>FindAmusician - Create new post</h1>
+        <h1 className={styles.header}>FindAmusician - Create new post</h1>
       </div>
       <div className={styles.postformborder}>
         <PostForm userId={user.id} />
       </div>
-      {/* return;  <main>FindAmusician - New post page</main>; */}
+      {posts.length === 0 ? (
+        <h2 className={styles.header}>No posts yet</h2>
+      ) : (
+        <h2 className={styles.header}>{user.username}'s posts</h2>
+      )}
+      {posts.map((post) => (
+        <div key={`post-div-${post.id}`} className={styles.post}>
+          <h2 className={styles.subHeader}>{post.title}</h2>
+          <h2 className={styles.descriptionHeader}>Description</h2>
+          <div className={styles.description}>{post.postDescription}</div>
+          <h2 className={styles.genreHeader}>Genre</h2>
+
+          <div className={styles.genre}>{post.postGenre}</div>
+        </div>
+      ))}
     </>
   );
 }

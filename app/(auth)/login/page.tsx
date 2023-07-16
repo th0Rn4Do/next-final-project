@@ -28,10 +28,10 @@ export default async function LogInPage({ searchParams }: Props) {
   return (
     <>
       <div>
-        <h1>FindAmusician - Log in</h1>
+        <h1 className={styles.header}>FindAmusician - Log in</h1>
       </div>
-      <div className={styles.loginformborder}>
-        <LoginForm returnTo={searchParams.returnTo} />
+      <div className={styles.formborder}>
+        <LoginForm />
       </div>
       {/* <main>FindAmusician - Log in</main> */}
     </>

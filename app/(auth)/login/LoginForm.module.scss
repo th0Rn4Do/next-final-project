@@ -1,19 +1,52 @@
-.loginbutton {
-  background-color: rgb(244, 162, 97);
-  color: rgb(38, 70, 83);
-  border-radius: 5px;
-  border: 1px solid;
-  cursor: pointer;
-  width: 68px;
-  height: 24px;
-  margin: 1rem;
+.form {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  &:hover {
-    background-color: rgb(38, 70, 83);
-    color: rgb(244, 162, 97);
+.formGroup {
+  margin-bottom: 30px;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+
+  &:focus {
+    outline: none;
+    border-color: #8eafff;
+    box-shadow: 0 0 0 2px rgba(56, 112, 255, 0.25);
   }
 }
 
-.loginerror {
-  background-color: rgb(227, 49, 49);
+.formTextarea {
+  height: 100px;
+}
+
+.button {
+  background: linear-gradient(90deg, #09203f, #537895);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 20px;
+  width: 200px;
+}
+
+.error {
+  color: red;
+  font-size: 20px;
+  font-weight: bold;
 }

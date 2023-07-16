@@ -24,12 +24,11 @@ export default async function RegisterPage() {
   return (
     <>
       <div>
-        <h1>FindAmusician - Register</h1>
+        <h1 className={styles.header}>FindAmusician - Register</h1>
       </div>
-      <div className={styles.registerformborder}>
+      <div className={styles.formborder}>
         <RegisterForm />
       </div>
-      {/* return; <main>FindAmusician - Register</main>; */}
     </>
   );
 }

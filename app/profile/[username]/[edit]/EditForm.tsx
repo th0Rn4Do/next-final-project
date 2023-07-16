@@ -21,21 +21,16 @@ export default function EditForm({ user }: Props) {
     useState('');
   const router = useRouter();
 
-  // console.log(user);
-
   async function deleteAnimalById(id: number) {
     const response = await fetch(`/api/delete/${id}`, {
       method: 'DELETE',
     });
 
     const data = await response.json();
-    // Router.push.....
     router.push(`/login`);
 
     router.refresh();
   }
-
-  /* console.log('oneditfristnameinput', onEditFirstNameInput); */
 
   async function updateUserById(id: number) {
     const response = await fetch(`/api/edit/${id}`, {
@@ -53,56 +48,42 @@ export default function EditForm({ user }: Props) {
   }
 
   return (
-    <div>
-      <label>
-        First Name
+    <div className={styles.form}>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>First name</label>
         <input
+          className={styles.formInput}
           value={user.id !== onEditId ? user.firstName : onEditFirstNameInput}
           onChange={(event) =>
             setOnEditFirstNameInput(event.currentTarget.value)
           }
           disabled={user.id !== onEditId}
         />
-      </label>
-      <br />
-      <label>
-        Last Name
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Last name</label>
         <input
+          className={styles.formInput}
           value={user.id !== onEditId ? user.lastName : onEditLastNameInput}
           onChange={(event) =>
             setOnEditLastNameInput(event.currentTarget.value)
           }
           disabled={user.id !== onEditId}
         />
-      </label>
-      <br />
-      <label>
-        Genre
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Genre</label>
         <input
+          className={styles.formInput}
           value={user.id !== onEditId ? user.genre : onEditGenreInput}
           onChange={(event) => setOnEditGenreInput(event.currentTarget.value)}
           disabled={user.id !== onEditId}
         />
-      </label>
-      <br />
-      <label>
-        Personal description
-        <input
-          value={
-            user.id !== onEditId
-              ? user.personalDescription
-              : onEditPersonalDescriptionInput
-          }
-          onChange={(event) =>
-            setOnEditPersonalDescriptionInput(event.currentTarget.value)
-          }
-          disabled={user.id !== onEditId}
-        />
-      </label>
-      <br />
-      <label>
-        Music instrument
-        <input
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Music instrument(s)</label>
+        <textarea
+          className={styles.formTextarea}
           value={
             user.id !== onEditId
               ? user.musicInstrument
@@ -113,14 +94,26 @@ export default function EditForm({ user }: Props) {
           }
           disabled={user.id !== onEditId}
         />
-      </label>
-      <br />
-      {`id on edit = ${onEditId}`}
-      <br />
-      <br />
+      </div>
+      <div className={styles.formGroup}>
+        <label className={styles.label}>Personal description</label>
+        <textarea
+          className={styles.formTextarea}
+          value={
+            user.id !== onEditId
+              ? user.personalDescription
+              : onEditPersonalDescriptionInput
+          }
+          onChange={(event) =>
+            setOnEditPersonalDescriptionInput(event.currentTarget.value)
+          }
+          disabled={user.id !== onEditId}
+        />
+      </div>
+
       {user.id === onEditId ? (
         <button
-          className={styles.editbutton}
+          className={styles.button}
           onClick={async () => {
             setOnEditId(undefined);
             await updateUserById(user.id);
@@ -130,7 +123,7 @@ export default function EditForm({ user }: Props) {
         </button>
       ) : (
         <button
-          className={styles.editbutton}
+          className={styles.button}
           onClick={() => {
             setOnEditId(user.id);
             setOnEditFirstNameInput(user.firstName);
@@ -143,13 +136,6 @@ export default function EditForm({ user }: Props) {
           Edit
         </button>
       )}
-
-     { /* <button
-        className={styles.editbutton}
-        onClick={async () => await deleteAnimalById(user.id)}
-      >
-        Delete
-      </button> */ }
     </div>
   );
 }

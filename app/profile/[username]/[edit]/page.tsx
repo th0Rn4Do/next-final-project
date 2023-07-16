@@ -32,33 +32,21 @@ export default async function EditProfileUsernamePage({ params }: Props) {
     ? undefined
     : await getUserBySessionToken(sessionTokenCookie.value);
 
-  /* const user = await getUserByUsername(params.username); */
-  /* const user = await getUserByUsername(params.username); */
-
-  /*  if (!user) {
-    notFound();
-  } */
-
   if (!user) {
     redirect('/');
   }
 
   return (
     <>
-      <div>
-        <h1>Edit: {user.username}</h1>
-      </div>
       <section className={styles.topRowDeleteButton}>
         <Link href={`/profile/${user.username}/`}>My profile</Link>
-        <div> {/* id: {user.id} */} </div>
-        <div>
-          <Link href={`/profile/${user.username}/edit/delete`}>
-            ❌ Delete user
-          </Link>
-        </div>
+        <h1>Edit {user.username}'s Profile</h1>
+        <Link href={`/profile/${user.username}/edit/delete`}>
+          ❌ Delete user
+        </Link>
       </section>
       <section>
-        <div className={styles.boxesForUserData}>
+        <div className={styles.formborder}>
           <EditForm user={user} />
         </div>
       </section>
