@@ -71,7 +71,7 @@ export default function PostForm(props: { userId: number }) {
         />
       </div>
       <div className={styles.formGroup}>
-        <label className={styles.label}>Music instrument(s)</label>
+        <label className={styles.label}>Genre</label>
         <textarea
           className={styles.formTextarea}
           value={postGenre}
