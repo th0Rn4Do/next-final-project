@@ -5,7 +5,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 import { createSession } from '../../../../database/sessions';
 import { getUserWithPasswordHashByUsername } from '../../../../database/users';
-import { User } from '../../../../migrations/1687334782-createUsers';
+import { LoginUser, User } from '../../../../migrations/1687334782-createUsers';
 import { secureCookieOptions } from '../../../../util/cookies';
 
 type Error = {
@@ -14,7 +14,7 @@ type Error = {
 
 export type LoginResponseBodyPost =
   | {
-      user: User;
+      user: LoginUser;
     }
   | Error;
 
