@@ -6,6 +6,8 @@ import { deleteSessionByToken } from '../../../database/sessions';
 import { CreateMatchResponseBodyMatch } from '../../api/match/route';
 
 export async function match(props: { postId: number; userId: number }) {
+  const [error, setError] = useState('');
+
   await async function createMatch() {
     const response = await fetch('/api/match', {
       method: 'POST',
