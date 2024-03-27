@@ -10,4 +10,8 @@ test('navigation test', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'register' })).toBeVisible();
 
   await expect(page.getByRole('link', { name: 'login' })).toBeVisible();
+
+  await expect(
+    page.getByRole('heading', { name: 'FindAmusician' }),
+  ).toBeVisible();
 });
