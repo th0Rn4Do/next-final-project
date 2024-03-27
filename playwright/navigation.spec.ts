@@ -14,4 +14,8 @@ test('navigation test', async ({ page }) => {
   await expect(
     page.getByRole('heading', { name: 'FindAmusician' }),
   ).toBeVisible();
+
+  await expect(
+    page.getByRole('heading', { name: 'Get your jam on' }),
+  ).toBeVisible();
 });
