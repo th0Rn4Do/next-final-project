@@ -6,4 +6,6 @@ test('navigation test', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Home' })).toBeVisible();
 
   await expect(page.getByRole('link', { name: 'Search' })).toBeVisible();
+
+  await expect(page.getByRole('link', { name: 'register' })).toBeVisible();
 });
