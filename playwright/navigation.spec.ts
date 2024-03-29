@@ -22,4 +22,6 @@ test('navigation test', async ({ page }) => {
   await expect(page.getByText('Welcome to FindAmusician -')).toBeVisible();
 
   await expect(page.getByRole('link', { name: 'FAQs' })).toBeVisible();
+
+  await expect(page.getByRole('link', { name: 'Site notice' })).toBeVisible();
 });
