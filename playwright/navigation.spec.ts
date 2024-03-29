@@ -37,4 +37,7 @@ test('navigation test', async ({ page }) => {
 
   await page.getByRole('link', { name: 'register' }).click();
   await expect(page).toHaveURL('http://localhost:3000/register');
+
+  await page.getByRole('link', { name: 'login' }).click();
+  await expect(page).toHaveURL('http://localhost:3000/login');
 });
