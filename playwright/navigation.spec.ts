@@ -28,4 +28,7 @@ test('navigation test', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Contact us' })).toBeVisible();
 
   await expect(page.getByText('Copyright')).toBeVisible();
+
+  await page.getByRole('link', { name: 'Home' }).click();
+  await expect(page).toHaveURL('http://localhost:3000/');
 });
