@@ -31,4 +31,7 @@ test('navigation test', async ({ page }) => {
 
   await page.getByRole('link', { name: 'Home' }).click();
   await expect(page).toHaveURL('http://localhost:3000/');
+
+  await page.getByRole('link', { name: 'Search' }).click();
+  await expect(page).toHaveURL('http://localhost:3000/login');
 });
