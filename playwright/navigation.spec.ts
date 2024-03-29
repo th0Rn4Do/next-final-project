@@ -26,4 +26,6 @@ test('navigation test', async ({ page }) => {
   await expect(page.getByRole('link', { name: 'Site notice' })).toBeVisible();
 
   await expect(page.getByRole('link', { name: 'Contact us' })).toBeVisible();
+
+  await expect(page.getByText('Copyright')).toBeVisible();
 });
