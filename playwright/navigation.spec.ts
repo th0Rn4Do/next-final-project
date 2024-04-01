@@ -49,6 +49,10 @@ test('navigation test', async ({ page }) => {
   ).toBeVisible();
 
   await expect(
+    page.getByText('Lorem ipsum dolor sit amet,').first(),
+  ).toBeVisible();
+
+  await expect(
     page.getByRole('heading', { name: 'What does ...?' }),
   ).toBeVisible();
 
