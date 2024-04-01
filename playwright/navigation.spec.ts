@@ -89,4 +89,8 @@ test('navigation test', async ({ page }) => {
   ).toBeVisible();
 
   await expect(page.getByRole('heading', { name: 'Legal' })).toBeVisible();
+
+  await expect(
+    page.getByRole('heading', { name: 'Authorised process agent' }),
+  ).toBeVisible();
 });
