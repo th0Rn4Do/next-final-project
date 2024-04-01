@@ -75,6 +75,10 @@ test('navigation test', async ({ page }) => {
     page.getByRole('heading', { name: 'Our address' }),
   ).toBeVisible();
 
+  await expect(
+    page.getByRole('heading', { name: 'Email: customersupport@' }),
+  ).toBeVisible();
+
   await page.getByRole('link', { name: 'Contact us' }).click();
   await expect(page).toHaveURL('http://localhost:3000/contactus');
 });
