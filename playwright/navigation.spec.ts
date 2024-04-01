@@ -52,6 +52,10 @@ test('navigation test', async ({ page }) => {
     page.getByRole('heading', { name: 'What does ...?' }),
   ).toBeVisible();
 
+  await expect(
+    page.getByRole('heading', { name: 'How do ...?' }),
+  ).toBeVisible();
+
   await page.getByRole('link', { name: 'Site notice' }).click();
   await expect(page).toHaveURL('http://localhost:3000/sitenotice');
 
