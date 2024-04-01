@@ -93,4 +93,6 @@ test('navigation test', async ({ page }) => {
   await expect(
     page.getByRole('heading', { name: 'Authorised process agent' }),
   ).toBeVisible();
+
+  await expect(page.getByText('Lorem ipsum dolor Rechtsanwä')).toBeVisible();
 });
