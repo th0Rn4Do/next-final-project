@@ -96,3 +96,10 @@ test('navigation test', async ({ page }) => {
 
   await expect(page.getByText('Lorem ipsum dolor Rechtsanwä')).toBeVisible();
 });
+
+test('register test', async ({ page }) => {
+  await page.goto('/');
+
+  await page.getByRole('link', { name: 'register' }).click();
+  await expect(page).toHaveURL('http://localhost:3000/register');
+});
