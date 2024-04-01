@@ -83,4 +83,8 @@ test('navigation test', async ({ page }) => {
 
   await page.getByRole('link', { name: 'Contact us' }).click();
   await expect(page).toHaveURL('http://localhost:3000/contactus');
+
+  await expect(
+    page.getByRole('heading', { name: 'FindAmusician - Contact us' }),
+  ).toBeVisible();
 });
