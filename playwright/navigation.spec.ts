@@ -40,4 +40,7 @@ test('navigation test', async ({ page }) => {
 
   await page.getByRole('link', { name: 'login' }).click();
   await expect(page).toHaveURL('http://localhost:3000/login');
+
+  await page.getByRole('link', { name: 'FAQs' }).click();
+  await expect(page).toHaveURL('http://localhost:3000/faqs');
 });
