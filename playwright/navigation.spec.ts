@@ -102,4 +102,10 @@ test('register test', async ({ page }) => {
 
   await page.getByRole('link', { name: 'register' }).click();
   await expect(page).toHaveURL('http://localhost:3000/register');
+
+  await page
+    .locator('div')
+    .filter({ hasText: /^Username$/ })
+    .getByRole('textbox')
+    .fill('endtoendtest1');
 });
