@@ -108,4 +108,6 @@ test('register test', async ({ page }) => {
     .filter({ hasText: /^Username$/ })
     .getByRole('textbox')
     .fill('endtoendtest1');
+
+  await page.locator('input[type="password"]').fill('endtoendtest1-pw');
 });
