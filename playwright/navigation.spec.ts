@@ -79,6 +79,8 @@ test('navigation test', async ({ page }) => {
     page.getByRole('heading', { name: 'Email: customersupport@' }),
   ).toBeVisible();
 
+  await expect(page.getByText('FindAmusician LLCLorem ipsum')).toBeVisible();
+
   await page.getByRole('link', { name: 'Contact us' }).click();
   await expect(page).toHaveURL('http://localhost:3000/contactus');
 });
