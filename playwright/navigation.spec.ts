@@ -87,4 +87,6 @@ test('navigation test', async ({ page }) => {
   await expect(
     page.getByRole('heading', { name: 'FindAmusician - Contact us' }),
   ).toBeVisible();
+
+  await expect(page.getByRole('heading', { name: 'Legal' })).toBeVisible();
 });
