@@ -44,6 +44,10 @@ test('navigation test', async ({ page }) => {
   await page.getByRole('link', { name: 'FAQs' }).click();
   await expect(page).toHaveURL('http://localhost:3000/faqs');
 
+  await expect(
+    page.getByRole('heading', { name: 'FindAmusician - FAQs' }),
+  ).toBeVisible();
+
   await page.getByRole('link', { name: 'Site notice' }).click();
   await expect(page).toHaveURL('http://localhost:3000/sitenotice');
 
